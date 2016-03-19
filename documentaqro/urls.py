@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^patrocinadores/', views.patrocinadores, name='patrocinadores'),
     url(r'^nosotros/', views.nosotros, name='nosotros'),
+    url(r'^blog/', views.blog, name='blog'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
