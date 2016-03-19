@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<h2 class="header text_b">{{ post.titulo }}</h2>
+		<div class="col s12">
+			<img src="{{ post.imagen.url }}" class="responsive-img" style="width:100%;">
+		</div>
+	</div>
+</div>
+
+<div class="section scrollspy" id="work">
+    <div class="container">
+        <div class="row">
+        	<div  class="col s12">
+                <h4 class="header text_h3 flow-text">{{ post.contenido }}</h4>
+            </div>
+        </div>
+        {% if post.video %}
+	        <div class="row">
+	        	<div class="col s12">
+					<iframe width="100%" height="500"
+					src="http://www.youtube.com/embed/{{ post.video }}">
+					</iframe> 
+	        	</div>
+	        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock content %}

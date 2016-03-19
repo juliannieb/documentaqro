@@ -44,3 +44,11 @@ def blog(request):
 		blog = paginator.page(paginator.num_pages)
 	context['blog'] = blog
 	return render(request, 'blog.html', context)
+
+def blog_post(request, post_id):
+	"""Post de un Blog
+	"""
+	post = BlogPost.objects.get(pk=post_id)
+	context = {}
+	context['post'] = post
+	return render(request, 'blog_post.html', context)
