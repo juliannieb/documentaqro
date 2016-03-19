@@ -7,3 +7,9 @@ def index(request):
     """
     context = {'arreglo': ['hola', 'adios', 'bye']}
     return render(request, 'index.html', context)
+
+def patrocinadores(request):
+	"""Patrocinadores generales de DocumentaQro
+	"""
+	context = {}
+	return render(request, 'patrocinadores.html', context)

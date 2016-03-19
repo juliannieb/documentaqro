@@ -34,8 +34,8 @@
             <div class="nav-wrapper">
             <a href="#" id="logo-container" class="brand-logo"><img src="{% static "img/documentaqro_logo2.png" %}" class="responsive-img"></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="#intro">Inicio</a></li>
-                    <li><a href="#work">Patrocinadores</a></li>
+                    <li><a href="{% url 'index' %}">Inicio</a></li>
+                    <li><a href="{% url 'patrocinadores' %}">Patrocinadores</a></li>
                     <li><a href="#team">Nosotros</a></li>
                     <li><a href="#contact">Blog</a></li>
                     <li><a href="#contact">Contacto</a></li>
