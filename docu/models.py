@@ -1,37 +1,65 @@
 from django.db import models
 
-class TipoEnvento(models.Model):
-    nombre = models.CharField(max_length=100)
+class Festival(models.Model):
+	nombre = models.CharField(max_length=100)
+
+	def __str__(self):
+		return self.nombre
+
+class Sede(models.Model):
+	nombre = models.CharField(max_length=100)
+	imagen = models.ImageField(upload_to='sedes', default='static/default.jpg')
+	latitud = models.FloatField()
+	longitud = models.FloatField()
+
+	def __str__(self):
+		return self.nombre
 
 class Evento(models.Model):
-    nombre = models.CharField(max_length=100)
-    #patrocinadores = models.ImageField(upload_to='cars')
-    color = models.CharField(max_length=7)
-    fecha_inicio = models.DateTimeField('Fecha inicio')
-    fecha_fin = models.DateTimeField('Fecha fin')
+	festival = models.ForeignKey('Festival')
 
-    def __str__(self):
-    	return self.nombre
+	nombre = models.CharField(max_length=100)
+	patrocinadores = models.ImageField(upload_to='eventos', default='static/default.jpg')
+	color = models.CharField(max_length=7)
+	fecha_inicio = models.DateTimeField('Fecha inicio')
+	fecha_fin = models.DateTimeField('Fecha fin')
 
-class Proyecciones(models.Model):
+	def __str__(self):
+		return self.nombre
+
+class Proyeccion(models.Model):
+	evento = models.ForeignKey('Evento')
+	sede = models.ForeignKey('Sede')
+
 	nombre = models.CharField(max_length=100)
 	fecha_y_hora = models.DateTimeField('Fecha y hora')
-	#imagen
+	descripcion = models.CharField(max_length=500)
+
+	def __str__(self):
+		return self.nombre + " - " + self.fecha_y_hora
+
+class Pelicula(models.Model):
+	proyeccion = models.ForeignKey('Proyeccion')
+
+	nombre = models.CharField(max_length=100)
+	imagen = models.ImageField(upload_to='peliculas', default='static/default.jpg')
 	sinopsis = models.CharField(max_length=500)
-	#trailer
+	trailer = models.CharField(max_length=1000)
 
 	def __str__(self):
 		return self.nombre
 
 class Jurado(models.Model):
+	evento = models.ForeignKey('Evento')
+
 	nombre = models.CharField(max_length=50)
-	#foto
+	foto = models.ImageField(upload_to='jurado', default='static/default.jpg')
 
 	def __str__(self):
 		return self.nombre
 
 
-class Subscriptores(models.Model):
+class Subscriptor(models.Model):
 	nombre = models.CharField(max_length=50)
 	apellido = models.CharField(max_length=50)
 	correo = models.CharField(max_length=30)
@@ -39,25 +67,35 @@ class Subscriptores(models.Model):
 	def __str__(self):
 		return self.nombre + " " + self.apellido
 
+class Area(models.Model):
+	nombre = models.CharField(max_length=25)
+
+	def __str__(self):
+		return self.nombre
+
 class MiembroEquipo(models.Model):
+	area = models.ForeignKey('Area')
+
 	nombre = models.CharField(max_length=50)
-	#foto
+	foto = models.ImageField(upload_to='equipo', default='static/default.jpg')
 
 	def __str__(self):
 		return self.nombre
 
 class MiembroStaff(models.Model):
+	area = models.ForeignKey('Area')
+	
 	nombre = models.CharField(max_length=50)
-	#foto
+	foto = models.ImageField(upload_to='staff', default='static/default.jpg')
 
 	def __str__(self):
 		return self.nombre
 
 class BlogPost(models.Model):
 	titulo = models.CharField(max_length=100)
-	#imagen
-	link = models.CharField(max_length=1000)
-	descripcion = models.CharField(max_length=500)
+	imagen = models.ImageField(upload_to='posts', default='static/default.jpg')
+	contenido = models.TextField(default="")
+	video = models.CharField(max_length=1000)
 
 	def __str__(self):
 		return self.titulo
