@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import *
+from .forms import ContactoForm
 
 # Create your views here.
 
@@ -77,4 +78,13 @@ def contacto(request):
 	"""Mensaje de contacto
 	"""
 	context = {}
+	if request.method == 'POST':
+		form = ContactoForm(request.POST)
+		if form.is_valid():
+			contacto = form.save(commit=False)
+			contacto.save()
+			return redirect('contacto')
+	else:
+		form = ContactoForm()
+	context['form'] = form
 	return render(request, 'contacto.html', context)
