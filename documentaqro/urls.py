@@ -26,4 +26,5 @@ urlpatterns = [
     url(r'^nosotros/', views.nosotros, name='nosotros'),
     url(r'^blog/', views.blog, name='blog'),
     url(r'^blog-post/(?P<post_id>[0-9]+)', views.blog_post, name='blog_post'),
+     url(r'^search-blog-posts/', views.search_blog_posts, name='search_blog_posts'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

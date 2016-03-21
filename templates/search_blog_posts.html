@@ -1,0 +1,35 @@
+<div class="row">
+	{% for post in blog %}
+        <div class="col s12 m4 l4">
+            <div class="card" style="height: 500px">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{{ post.imagen.url }}" style="height: 150px">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">{{ post.titulo }}
+                    <p><a href="{% url 'blog_post' post.pk %}">Leer</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Project Title largeeeeeeeeee<i class="mdi-navigation-close right"></i></span>
+                    <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                </div>
+            </div>
+        </div>
+	{% endfor %}
+</div>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if blog.has_previous %}
+            <a href="?page={{ blog.previous_page_number }}">Anterior</a>
+        {% endif %}
+
+        <span class="current">
+            Página {{ blog.number }} de {{ blog.paginator.num_pages }}.
+        </span>
+
+        {% if blog.has_next %}
+            <a href="?page={{ blog.next_page_number }}">Siguiente</a>
+        {% endif %}
+    </span>
+</div>

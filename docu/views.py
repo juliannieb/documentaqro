@@ -52,3 +52,23 @@ def blog_post(request, post_id):
 	context = {}
 	context['post'] = post
 	return render(request, 'blog_post.html', context)
+
+def search_blog_posts(request):
+	"""Busqueda de un post
+	"""
+	search_string = request.GET.get('search_string', '')
+	print(search_string)
+	context = {}
+	blog = BlogPost.objects.filter(titulo__icontains=search_string)
+	paginator = Paginator(blog, 24)
+	page = request.GET.get('page')
+	try:
+		blog = paginator.page(page)
+	except PageNotAnInteger:
+		# If page is not an integer, deliver first page.
+		blog = paginator.page(1)
+	except EmptyPage:
+		# If page is out of range (e.g. 9999), deliver last page of results.
+		blog = paginator.page(paginator.num_pages)
+	context['blog'] = blog
+	return render(request, 'search_blog_posts.html', context)

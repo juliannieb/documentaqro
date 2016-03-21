@@ -70,5 +70,8 @@
     <script src="{% static "min/plugin-min.js" %}"></script>
     <script src="{% static "min/custom-min.js" %}"></script>
 
-    </body>
+    {% block scripts %}
+    {% endblock scripts %}
+
+</body>
 </html>
