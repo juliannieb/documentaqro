@@ -9,7 +9,9 @@ from .forms import ContactoForm
 def index(request):
 	""" Index de la pagina
 	"""
-	context = {'arreglo': ['hola', 'adios', 'bye']}
+	context = {}
+	blog = BlogPost.objects.all()
+	context['blog'] = blog[:3]
 	return render(request, 'index.html', context)
 
 def patrocinadores(request):
