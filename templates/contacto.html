@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="section scrollspy" id="work">
+    <div class="container">
+        <h2 class="header text_b">Contacto</h2>
+        <div class="row">
+		    <form class="col s12">
+		      <div class="row">
+		        <div class="input-field col s12">
+		          <i class="material-icons prefix">account_circle</i>
+		          <input id="icon_prefix" type="text" class="validate">
+		          <label for="icon_prefix">Nombre</label>
+		        </div>
+		        <div class="input-field col s12">
+		          <i class="material-icons prefix">email</i>
+		          <input id="icon_telephone" type="tel" class="validate">
+		          <label for="icon_telephone">Correo</label>
+		        </div>
+		        <div class="input-field col s12">
+		          <i class="material-icons prefix">message</i>
+		          <textarea id="textarea1" class="materialize-textarea"></textarea>
+		          <label for="textarea1">Mensaje</label>
+		        </div>
+		        <div class="input-field col s4">
+		        	<input type="submit" class="btn btn-default" value="Enviar">
+		        </div>
+		      </div>
+		    </form>
+		</div>
+		<div class="row">
+			<div  class="col s12 m4 l4">
+                <div class="center promo promo-example">
+                    <a href="https://www.facebook.com/DocumentaQro/" target="_blank">
+                      <img src="{% static "img/facebook_circle_2.png" %}">
+                      <h5 class="promo-caption flow-text">Síguenos en Facebook</h5>
+                    </a>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="center promo promo-example">
+                    <a href="https://twitter.com/DocumentaQro" target="_blank">
+                      <img src="{% static "img/twitter_circle.png" %}">
+                      <h5 class="promo-caption flow-text">Síguenos en Twitter</h5>
+                    </a>
+                </div>
+            </div>
+            <div  class="col s12 m4 l4">
+                <div class="center promo promo-example">
+                    <a href="https://www.instagram.com/DocumentaQro/" target="_blank">
+                      <img src="{% static "img/instagram_circle_2.png" %}">
+                      <h5 class="promo-caption flow-text">Síguenos en Instagram</h5>
+                    </a>
+                </div>
+            </div>
+            <div class="col s12 m6 l6">
+                <div class="center promo promo-example">
+                    <a href="mailto:youremailaddress">
+                      <img src="{% static "img/mail_circle_2.png" %}">
+                      <h5 class="promo-caption flow-text">hola@documentaqro.com</h5>
+                    </a>
+                </div>
+            </div>
+            <div class="col s12 m6 l6">
+                <div class="center promo promo-example">
+                    <a href="">
+                      <img src="{% static "img/list_circle_2.png" %}">
+                      <h5 class="promo-caption flow-text">Suscríbete</h5>
+                    </a>
+                </div>
+            </div>	
+		</div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -72,3 +72,9 @@ def search_blog_posts(request):
 		blog = paginator.page(paginator.num_pages)
 	context['blog'] = blog
 	return render(request, 'search_blog_posts.html', context)
+
+def contacto(request):
+	"""Mensaje de contacto
+	"""
+	context = {}
+	return render(request, 'contacto.html', context)
