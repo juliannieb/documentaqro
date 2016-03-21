@@ -11,6 +11,8 @@ def index(request):
 	"""
 	context = {}
 	blog = BlogPost.objects.all()
+	festivales = Festival.objects.all()
+	context['festivales'] = festivales
 	context['blog'] = blog[:3]
 	return render(request, 'index.html', context)
 

@@ -31,17 +31,16 @@
 <!--Navigation-->
  <div class="navbar-fixed">
     <ul id="dropdown1" class="dropdown-content">
-      <li><a href="#!">one</a></li>
-      <li><a href="#!">two</a></li>
-      <li class="divider"></li>
-      <li><a href="#!">three</a></li>
+      {% for festival in festivales %}
+        <li><a href="#!">{{ festival.nombre }}</a></li>
+      {% endfor %}
     </ul>
     <nav id="nav_f" class=" pink darken-1" role="navigation">
         <div class="container">
             <div class="nav-wrapper">
             <a href="{% url 'index' %}" id="logo-container" class="brand-logo"><img src="{% static "img/documentaqro_logo2.png" %}" class="responsive-img"></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Eventos</a></li>
+                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Eventos<i class="material-icons right">arrow_drop_down</i></a></li>
                     <li><a href="{% url 'patrocinadores' %}">Patrocinadores</a></li>
                     <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
                     <li><a href="{% url 'blog' %}">Blog</a></li>
@@ -49,7 +48,20 @@
                     </a></li>
                 </ul>
                 <ul id="nav-mobile" class="side-nav"> 
-                    <li><a href="#intro">Inicio</a></li>
+                    <li class="no-padding">
+                        <ul class="collapsible collapsible-accordion">
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect waves-teal" >Eventos</a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        {% for festival in festivales %}
+                                            <li><a href="" style="font-size:10px;">{{ festival.nombre }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
                     <li><a href="#work">Patrocinadores</a></li>
                     <li><a href="#team">Nosotros</a></li>
                     <li><a href="#contact">Blog</a></li>
