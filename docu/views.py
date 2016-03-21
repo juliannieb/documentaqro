@@ -82,6 +82,7 @@ def contacto(request):
 		form = ContactoForm(request.POST)
 		if form.is_valid():
 			contacto = form.save(commit=False)
+			contacto.fecha_y_hora = timezone.now()
 			contacto.save()
 			return redirect('contacto')
 	else:

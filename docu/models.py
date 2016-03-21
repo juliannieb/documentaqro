@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 class Festival(models.Model):
 	nombre = models.CharField(max_length=100)
@@ -104,6 +105,7 @@ class Contacto(models.Model):
 	nombre = models.CharField(max_length=50)
 	correo = models.CharField(max_length=30)
 	mensaje = models.CharField(max_length=2000)
+	fecha_y_hora = models.DateTimeField('Fecha y hora')
 
 	def __str__(self):
-		return self.nombre + " - " + self.correo + " - " + self.mensaje
+		return self.nombre + " - " + self.fecha_y_hora.strftime('%d-%B-%Y %H:%M') + " - " + self.correo + " - " + self.mensaje
