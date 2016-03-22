@@ -5,17 +5,17 @@
 
 {% if evento %}
 
-<div class="navbar-fixed">
+<div class="navbar-fixed" id="inicio">
     <nav id="nav_f" class="" role="navigation" style="background:{{ evento.color }}">
         <div class="container">
             <div class="nav-wrapper">
                 <ul class="hide-on-med-and-down center">
-                    <li><a href="{% url 'patrocinadores' %}">{{ evento.nombre }}</a></li>
-                    <li><a href="{% url 'patrocinadores' %}">Objetivos</a></li>
-                    <li><a href="{% url 'patrocinadores' %}">Patrocinadores</a></li>
-                    <li><a href="{% url 'nosotros' %}">Proyecciones</a></li>
-                    <li><a href="{% url 'blog' %}">Jurados</a></li>
-                    <li><a href="{% url 'contacto' %}">Arte</a></li>
+                    <li><a href="#inicio">{{ evento.nombre }}</a></li>
+                    <li><a href="#objetivos">Objetivos</a></li>
+                    <li><a href="#patrocinadores">Patrocinadores</a></li>
+                    <li><a href="#proyecciones">Proyecciones</a></li>
+                    <li><a href="#jurados">Jurados</a></li>
+                    <li><a href="#arte">Arte</a></li>
                 </ul>
             </div>
         </div>
@@ -50,6 +50,13 @@
     </div>
 </div>
 
+<div class="divider" id="objetivos"></div>
+
+</br>
+</br>
+</br>
+</br>
+
 <div class="section scrollspy">
     <div class="container">
         <h2 class="header text_b">Objetivos</h2>
@@ -58,6 +65,13 @@
         </div>
     </div>
 </div>
+
+<div class="divider" id="patrocinadores"></div>
+
+</br>
+</br>
+</br>
+</br>
 
 <div class="section scrollspy">
     <div class="container">
@@ -68,6 +82,13 @@
     </div>
 </div>
 
+<div class="divider" id="proyecciones"></div>
+
+</br>
+</br>
+</br>
+</br>
+
 <div class="section scrollspy">
     <div class="container">
         <h2 class="header text_b">Proyecciones</h2>
@@ -77,6 +98,13 @@
     </div>
 </div>
 
+<div class="divider" id="jurados"></div>
+
+</br>
+</br>
+</br>
+</br>
+
 <div class="section scrollspy">
     <div class="container">
         <h2 class="header text_b">Jurados</h2>
@@ -85,6 +113,13 @@
         </div>
     </div>
 </div>
+
+<div class="divider" id="arte"></div>
+
+</br>
+</br>
+</br>
+</br>
 
 <div class="section scrollspy">
     <div class="container">
@@ -102,3 +137,24 @@ asd
 {% endif %}
 
 {% endblock content %}
+
+{% block scripts %}
+
+<script type="text/javascript">
+	$(function() {
+	  $('a[href*="#"]:not([href="#"])').click(function() {
+	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+	      var target = $(this.hash);
+	      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+	      if (target.length) {
+	        $('html, body').animate({
+	          scrollTop: target.offset().top
+	        }, 1000);
+	        return false;
+	      }
+	    }
+	  });
+	});
+</script>
+
+{% endblock scripts %}
