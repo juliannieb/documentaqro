@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+from datetime import datetime, timedelta
+
 from .models import *
 from .forms import ContactoForm
 
@@ -93,3 +95,15 @@ def contacto(request):
 		form = ContactoForm()
 	context['form'] = form
 	return render(request, 'contacto.html', context)
+
+def evento(request, festival_id):
+	"""Vista de un evento
+	"""
+	context = {}
+	#festival = Festival.objects.get(pk=festival_id)
+	today = timezone.now()
+	eventos_proximos = Evento.objects.filter(festival=festival_id, fecha_fin__gt=today)
+	if eventos_proximos:
+		evento = eventos_proximos[0]
+		context['evento'] = evento
+	return render(request, 'evento.html', context)

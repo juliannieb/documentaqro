@@ -28,4 +28,5 @@ urlpatterns = [
     url(r'^blog-post/(?P<post_id>[0-9]+)', views.blog_post, name='blog_post'),
     url(r'^search-blog-posts/', views.search_blog_posts, name='search_blog_posts'),
     url(r'^contacto/', views.contacto, name='contacto'),
+    url(r'^evento/(?P<festival_id>[0-9]+)', views.evento, name='evento'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

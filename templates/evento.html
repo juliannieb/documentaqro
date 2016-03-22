@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+{% if evento %}
+
+<!--Parallax-->
+<div class="parallax-container valign-wrapper">
+    <div class="parallax"><img src="{% static "img/docu_parallax.png" %}"></div>
+    <div class="container">
+    	<div class="row">
+    		<div class="s12 center-align center circle valign center-block">
+    			<div class="center-align center circle valign center-block" style="background:white;padding:5px;display: inline-block;">
+			    	<img class="center-align center circle responsive-img valign center-block" src="{% static "img/docu_parallax.png" %}" style="width:120px;height:120px;">
+			    </div>
+    		</div>
+    		<div class="s12 center-align center valign center-block">
+    			<h3 class="white-text">Nombre del Evento</h3>
+    		</div>
+    	</div>
+    </div>
+</div>
+
+<!--Intro and service-->
+<div id="intro" class="section scrollspy">
+    <div class="container">
+        <div class="row">
+            <div  class="col s12">
+                <h4 class="center header text_h2 flow-text">DocumentaQro es una iniciativa joven que se concreta como <span class="span_h2">Documental en Querétaro A.C.</span> abre espacios de exhibición para el documental y promueve su producción; ofreciendo a la comunidad la posibilidad de entrar en contacto con largometrajes y cortometrajes de México y el mundo, que muestran un poco de la realidad vista a través de los ojos del realizador.</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% else %}
+
+asd
+
+{% endif %}
+
+{% endblock content %}
