@@ -7,16 +7,16 @@
 
 <!--Parallax-->
 <div class="parallax-container valign-wrapper">
-    <div class="parallax"><img src="{% static "img/docu_parallax.png" %}"></div>
+    <div class="parallax"><img src="{{ evento.imagen_principal.url }}"></div>
     <div class="container">
     	<div class="row">
     		<div class="s12 center-align center circle valign center-block">
     			<div class="center-align center circle valign center-block" style="background:white;padding:5px;display: inline-block;">
-			    	<img class="center-align center circle responsive-img valign center-block" src="{% static "img/docu_parallax.png" %}" style="width:120px;height:120px;">
+			    	<img class="center-align center circle responsive-img valign center-block" src="{{ evento.logo.url }}" style="width:120px;height:120px;">
 			    </div>
     		</div>
     		<div class="s12 center-align center valign center-block">
-    			<h3 class="white-text">Nombre del Evento</h3>
+    			<h3 class="white-text">{{ evento.nombre }}</h3>
     		</div>
     	</div>
     </div>
@@ -27,8 +27,29 @@
     <div class="container">
         <div class="row">
             <div  class="col s12">
-                <h4 class="center header text_h2 flow-text">DocumentaQro es una iniciativa joven que se concreta como <span class="span_h2">Documental en Querétaro A.C.</span> abre espacios de exhibición para el documental y promueve su producción; ofreciendo a la comunidad la posibilidad de entrar en contacto con largometrajes y cortometrajes de México y el mundo, que muestran un poco de la realidad vista a través de los ojos del realizador.</h4>
+                <h4 class="center header text_h2 flow-text">{{ evento.descripcion }}</h4>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="section scrollspy">
+    <div class="container">
+        <h2 class="header text_b">Proyecciones</h2>
+        <div class="row">
+        	<calendar-md flex layout layout-fill
+			  calendar-direction="direction"
+			  on-prev-month="prevMonth"
+			  on-next-month="nextMonth"
+			  on-day-click="dayClick"
+			  title-format="'MMMM y'"
+			  ng-model='selectedDate'
+			  day-format="'d'"
+			  day-label-format="'EEE'"
+			  day-label-tooltip-format="'EEEE'"
+			  day-tooltip-format="'fullDate'"
+			  week-starts-on="firstDayOfWeek"
+			  day-content="setDayContent"></calendar-md>
         </div>
     </div>
 </div>
@@ -40,3 +61,9 @@ asd
 {% endif %}
 
 {% endblock content %}
+
+{% block scripts %}
+
+<script src="https://cdn.rawgit.com/bradberger/angular-material-calendar/master/dist/angular-material-calendar.js"></script>
+
+{% endblock scripts %}

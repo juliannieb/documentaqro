@@ -20,6 +20,9 @@ class Evento(models.Model):
 	festival = models.ForeignKey('Festival')
 
 	nombre = models.CharField(max_length=100)
+	descripcion = models.TextField(default="")
+	imagen_principal = models.ImageField(upload_to='eventos', default='static/default.jpg')
+	logo = models.ImageField(upload_to='eventos', default='static/default.jpg')
 	patrocinadores = models.ImageField(upload_to='eventos', default='static/default.jpg')
 	color = models.CharField(max_length=7)
 	fecha_inicio = models.DateTimeField('Fecha inicio')
