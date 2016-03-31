@@ -30,6 +30,16 @@ def nosotros(request):
 	"""Equipo y staff
 	"""
 	context = {}
+	if request.method == 'POST':
+		form = ContactoForm(request.POST)
+		if form.is_valid():
+			contacto = form.save(commit=False)
+			contacto.fecha_y_hora = timezone.now()
+			contacto.save()
+			return redirect('contacto')
+	else:
+		form = ContactoForm()
+	context['form'] = form
 	equipo = MiembroEquipo.objects.all()
 	staff = MiembroStaff.objects.all()
 	context['equipo'] = equipo
