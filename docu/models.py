@@ -25,6 +25,7 @@ class Evento(models.Model):
 	logo = models.ImageField(upload_to='eventos', default='static/default.jpg')
 	patrocinadores = models.ImageField(upload_to='eventos', default='static/default.jpg')
 	color = models.CharField(max_length=7)
+	color_texto_nav = models.CharField(max_length=7)
 	fecha_inicio = models.DateTimeField('Fecha inicio')
 	fecha_fin = models.DateTimeField('Fecha fin')
 

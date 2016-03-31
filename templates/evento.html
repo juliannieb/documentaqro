@@ -10,11 +10,10 @@
         <div class="container">
             <div class="nav-wrapper">
                 <ul class="hide-on-med-and-down center">
-                    <li><a href="#inicio">{{ evento.nombre }}</a></li>
-                    <li><a href="#patrocinadores">Patrocinadores</a></li>
-                    <li><a href="#proyecciones">Proyecciones</a></li>
-                    <li><a href="#jurados">Jurados</a></li>
-                    <li><a href="#arte">Arte</a></li>
+                    <li><a href="#inicio" style="color:{{ evento.color_texto_nav }};">{{ evento.nombre }}</a></li>
+                    <li><a href="#proyecciones" style="color:{{ evento.color_texto_nav }};">Proyecciones</a></li>
+                    <li><a href="#jurados" style="color:{{ evento.color_texto_nav }};">Jurados</a></li>
+                    <li><a href="#arte" style="color:{{ evento.color_texto_nav }};">Arte</a></li>
                 </ul>
             </div>
         </div>
@@ -49,22 +48,6 @@
     </div>
 </div>
 
-<div class="divider" id="patrocinadores"></div>
-
-</br>
-</br>
-</br>
-</br>
-
-<div class="section scrollspy">
-    <div class="container">
-        <h2 class="header text_b">Patrocinadores</h2>
-        <div class="row">
-        	<img src="{{ evento.patrocinadores.url }}" class="responsive-img">
-        </div>
-    </div>
-</div>
-
 <div class="divider" id="proyecciones"></div>
 
 </br>
@@ -74,7 +57,7 @@
 
 <div class="section scrollspy">
     <div class="container">
-        <h2 class="header text_b">Proyecciones</h2>
+        <h4 class="header text_b">Proyecciones</h4>
         <div class="row">
         	
         </div>
@@ -90,7 +73,7 @@
 
 <div class="section scrollspy">
     <div class="container">
-        <h2 class="header text_b">Jurados</h2>
+        <h4 class="header text_b">Jurados</h4>
         <div class="row">
         	
         </div>
@@ -106,9 +89,25 @@
 
 <div class="section scrollspy">
     <div class="container">
-        <h2 class="header text_b">Arte</h2>
+        <h4 class="header text_b">Arte</h4>
         <div class="row">
         	
+        </div>
+    </div>
+</div>
+
+<div class="divider" id="patrocinadores"></div>
+
+</br>
+</br>
+</br>
+</br>
+
+<div class="section scrollspy">
+    <div class="container">
+        <h4 class="header text_b">Patrocinadores</h4>
+        <div class="row">
+            <img src="{{ evento.patrocinadores.url }}" class="responsive-img">
         </div>
     </div>
 </div>
