@@ -57,6 +57,7 @@ class Jurado(models.Model):
 	evento = models.ForeignKey('Evento')
 
 	nombre = models.CharField(max_length=50)
+	descripcion = models.CharField(max_length=500)
 	foto = models.ImageField(upload_to='jurado', default='static/default.jpg')
 
 	def __str__(self):
