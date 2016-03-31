@@ -9,10 +9,22 @@
         {% for highlight in highlights %}
             <li>
                 <img src="{{ highlight.imagen.url }}"> <!-- random image -->
+                {% if highlight.posicion == 0 %}
                 <div class="caption center-align">
                     <h3>{{ highlight.titulo }}</h3>
                     <h5 class="light grey-text text-lighten-3">{{ highlight.frase }}</h5>
                 </div>
+                {% elif highlight.posicion == 1 %}
+                <div class="caption left-align">
+                    <h3>{{ highlight.titulo }}</h3>
+                    <h5 class="light grey-text text-lighten-3">{{ highlight.frase }}</h5>
+                </div>
+                {% else %}
+                <div class="caption right-align">
+                    <h3>{{ highlight.titulo }}</h3>
+                    <h5 class="light grey-text text-lighten-3">{{ highlight.frase }}</h5>
+                </div>
+                {% endif %}
             </li>
         {% endfor %}
     </ul>

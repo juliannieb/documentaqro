@@ -32,18 +32,14 @@
 
 <!--Navigation-->
  <div class="navbar-fixed">
-    <ul id="dropdown1" class="dropdown-content">
-      {% for festival in festivales %}
-        <li><a href="{% url 'evento' festival.pk %}">{{ festival.nombre }}</a></li>
-      {% endfor %}
-    </ul>
     <nav id="nav_principal" class="" role="navigation" style="background:#8ECAB5;">
         <div class="container">
             <div class="nav-wrapper">
             <a href="{% url 'index' %}" id="logo-container" class="brand-logo"><img src="{% static "img/documentaqro_logo2.png" %}" class="responsive-img"></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a class="dropdown-button active" href="#!" data-activates="dropdown1">Eventos<i class="material-icons right">arrow_drop_down</i></a></li>
-                    <li><a href="{% url 'patrocinadores' %}">Patrocinadores</a></li>
+                    {% for festival in festivales %}
+                        <li class="active"><a href="{% url 'evento' festival.pk %}">{{ festival.nombre_corto }}</a></li>
+                    {% endfor %}
                     <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
                     <li><a href="{% url 'blog' %}">Blog</a></li>
                     <li><a href="{% url 'contacto' %}">Contacto</a></li>
@@ -63,7 +59,9 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a href="#work">Patrocinadores</a></li>
+                    {% for festival in festivales %}
+                        <li><a href="{% url 'evento' festival.pk %}">{{ festival.nombre_corto }}</a></li>
+                    {% endfor %}
                     <li><a href="#team">Nosotros</a></li>
                     <li><a href="#contact">Blog</a></li>
                     <li><a href="#contact">Contacto</a></li>

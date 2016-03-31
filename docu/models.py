@@ -6,11 +6,15 @@ class Highlights(models.Model):
 	frase = models.CharField(max_length=100, default="", blank=True)
 	imagen = models.ImageField(upload_to='highlights', default='static/default.jpg')
 
+	type_choices = ((0, 'Centro'), (1, 'Izquierda'),(2, 'Derecha'),)
+	posicion = models.IntegerField(choices=type_choices, default=0)
+
 	def __str__(self):
 		return str(self.pk) + " - " + self.titulo
 
 class Festival(models.Model):
 	nombre = models.CharField(max_length=100)
+	nombre_corto = models.CharField(max_length=100)
 
 	def __str__(self):
 		return self.nombre
