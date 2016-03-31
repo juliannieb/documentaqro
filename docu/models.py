@@ -1,6 +1,12 @@
 from django.db import models
 from django.utils import timezone
 
+class HighlightsFrases(models.Model):
+	oracion = models.CharField(max_length=100)
+
+	def __str__(self):
+		return self.oracion
+
 class Festival(models.Model):
 	nombre = models.CharField(max_length=100)
 

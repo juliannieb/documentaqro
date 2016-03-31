@@ -12,8 +12,10 @@ def index(request):
 	""" Index de la pagina
 	"""
 	context = {}
-	blog = BlogPost.objects.all()
+	highlight_frases = HighlightsFrases.objects.all()
 	festivales = Festival.objects.all()
+	blog = BlogPost.objects.all()
+	context['highlight_frases'] = highlight_frases
 	context['festivales'] = festivales
 	context['blog'] = blog[:3]
 	return render(request, 'index.html', context)
