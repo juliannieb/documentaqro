@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <link href="{% static 'css/general.css' %}" rel="stylesheet">
+
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 
@@ -35,7 +37,7 @@
         <li><a href="{% url 'evento' festival.pk %}">{{ festival.nombre }}</a></li>
       {% endfor %}
     </ul>
-    <nav id="nav_f" class=" pink darken-1" role="navigation">
+    <nav id="nav_f" class="" role="navigation" style="background:#8ECAB5;">
         <div class="container">
             <div class="nav-wrapper">
             <a href="{% url 'index' %}" id="logo-container" class="brand-logo"><img src="{% static "img/documentaqro_logo2.png" %}" class="responsive-img"></a>
