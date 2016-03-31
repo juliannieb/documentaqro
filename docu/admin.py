@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import *
 # Register your models here.
-admin.site.register(HighlightsFrases)
+admin.site.register(Highlights)
 admin.site.register(Festival)
 admin.site.register(Sede)
 admin.site.register(Evento)

@@ -1,11 +1,13 @@
 from django.db import models
 from django.utils import timezone
 
-class HighlightsFrases(models.Model):
-	oracion = models.CharField(max_length=100)
+class Highlights(models.Model):
+	titulo = models.CharField(max_length=100, default="", blank=True)
+	frase = models.CharField(max_length=100, default="", blank=True)
+	imagen = models.ImageField(upload_to='highlights', default='static/default.jpg')
 
 	def __str__(self):
-		return self.oracion
+		return str(self.pk) + " - " + self.titulo
 
 class Festival(models.Model):
 	nombre = models.CharField(max_length=100)

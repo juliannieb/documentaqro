@@ -4,21 +4,21 @@
 {% block content %}
 
 <!--Hero-->
-<div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-        <h1 class="text_h center header cd-headline letters type flow-text">
-            <span class="cd-words-wrapper waiting">
-                {% for frase in highlight_frases %}
-                    {% if forloop.first %}
-                        <b class="is-visible">{{ frase.oracion }}</b>
-                    {% else %}
-                        <b>{{ frase.oracion }}</b>
-                    {% endif %}
-                {% endfor %}
-            </span>
-        </h1>
-    </div>
+<div class="slider">
+    <ul class="slides">
+        {% for highlight in highlights %}
+            <li>
+                <img src="{{ highlight.imagen.url }}"> <!-- random image -->
+                <div class="caption center-align">
+                    <h3>{{ highlight.titulo }}</h3>
+                    <h5 class="light grey-text text-lighten-3">{{ highlight.frase }}</h5>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
 </div>
+
+
 
 <!--Intro and service-->
 <div id="intro" class="section scrollspy">
@@ -96,3 +96,11 @@
 
 
 {% endblock content %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $('.slider').slider({full_width: true});
+        });
+    </script>
+{% endblock scripts %}
