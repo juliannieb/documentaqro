@@ -24,6 +24,8 @@ def patrocinadores(request):
 	"""Patrocinadores generales de DocumentaQro
 	"""
 	context = {}
+	festivales = Festival.objects.all()
+	context['festivales'] = festivales
 	return render(request, 'patrocinadores.html', context)
 
 def nosotros(request):
@@ -42,6 +44,8 @@ def nosotros(request):
 	context['form'] = form
 	equipo = MiembroEquipo.objects.all()
 	staff = MiembroStaff.objects.all()
+	festivales = Festival.objects.all()
+	context['festivales'] = festivales
 	context['equipo'] = equipo
 	context['staff'] = staff
 	return render(request, 'nosotros.html', context)
@@ -61,6 +65,8 @@ def blog(request):
 	except EmptyPage:
 		# If page is out of range (e.g. 9999), deliver last page of results.
 		blog = paginator.page(paginator.num_pages)
+	festivales = Festival.objects.all()
+	context['festivales'] = festivales
 	context['blog'] = blog
 	return render(request, 'blog.html', context)
 
@@ -69,6 +75,8 @@ def blog_post(request, post_id):
 	"""
 	post = BlogPost.objects.get(pk=post_id)
 	context = {}
+	festivales = Festival.objects.all()
+	context['festivales'] = festivales
 	context['post'] = post
 	return render(request, 'blog_post.html', context)
 
@@ -105,6 +113,8 @@ def contacto(request):
 			return redirect('contacto')
 	else:
 		form = ContactoForm()
+	festivales = Festival.objects.all()
+	context['festivales'] = festivales
 	context['form'] = form
 	return render(request, 'contacto.html', context)
 
@@ -118,4 +128,6 @@ def evento(request, festival_id):
 	if eventos_proximos:
 		evento = eventos_proximos[0]
 		context['evento'] = evento
+	festivales = Festival.objects.all()
+	context['festivales'] = festivales
 	return render(request, 'evento.html', context)
