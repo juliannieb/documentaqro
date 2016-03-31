@@ -97,6 +97,8 @@ class MiembroStaff(models.Model):
 
 class BlogPost(models.Model):
 	titulo = models.CharField(max_length=100)
+	autores = models.CharField(max_length=500)
+	fecha = models.DateField('Fecha')
 	imagen = models.ImageField(upload_to='posts', default='static/default.jpg')
 	contenido = models.TextField(default="")
 	video = models.CharField(max_length=1000)
