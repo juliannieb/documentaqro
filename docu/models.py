@@ -84,13 +84,19 @@ class Conferencia(models.Model):
 
 
 class Pelicula(models.Model):
-	proyeccion = models.ForeignKey('Proyeccion')
+	evento = models.ForeignKey('Evento', blank=True, null=True)
+	proyeccion = models.ForeignKey('Proyeccion', blank=True, null=True)
 
+	es_seleccion_oficial = models.BooleanField(default=False)
+	nacional = models.BooleanField(default=False)
 	nombre = models.CharField(max_length=100)
 	poster = models.ImageField(upload_to='peliculas', default='static/default.jpg')
 	still = models.ImageField(upload_to='peliculas', default='static/default.jpg')
 	sinopsis = models.CharField(max_length=500)
-	trailer = models.CharField(max_length=1000)
+	duracion = models.IntegerField()
+	director = models.CharField(max_length=1000)
+	year = models.IntegerField()
+	trailer = models.CharField(max_length=1000, blank=True, null=True)
 
 	def __str__(self):
 		return self.nombre

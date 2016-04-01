@@ -127,7 +127,12 @@ def evento(request, festival_id):
 	eventos_proximos = Evento.objects.filter(festival=festival_id, fecha_fin__gt=today)
 	if eventos_proximos:
 		evento = eventos_proximos[0]
+		seleccion_oficial = Pelicula.objects.filter(evento=evento.pk, es_seleccion_oficial=True)
 		context['evento'] = evento
+		context['seleccion_oficial'] = seleccion_oficial
+		context['proyecciones'] = 10
+		context['conferencias'] = 10
+		context['talleres'] = 10
 	festivales = Festival.objects.all()
 	context['festivales'] = festivales
 	return render(request, 'evento.html', context)
