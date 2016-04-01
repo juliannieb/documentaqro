@@ -55,11 +55,40 @@ class Proyeccion(models.Model):
 	def __str__(self):
 		return self.nombre + " - " + self.fecha_y_hora
 
+class Taller(models.Model):
+	evento = models.ForeignKey('Evento')
+	sede = models.ForeignKey('Sede')
+
+	nombre = models.CharField(max_length=100)
+	descripcion = models.CharField(max_length=2000)
+	fecha_y_hora = models.DateTimeField('Fecha y hora')
+	imagen = models.ImageField(upload_to='talleres', default='static/default.jpg')
+	costo = models.FloatField()
+
+	def __str__(self):
+		return self.nombre
+
+class Conferencia(models.Model):
+	evento = models.ForeignKey('Evento')
+	sede = models.ForeignKey('Sede')
+
+	nombre = models.CharField(max_length=100)
+	descripcion = models.CharField(max_length=2000)
+	nombre_conferencista = models.CharField(max_length=200)
+	fecha_y_hora = models.DateTimeField('Fecha y hora')
+	imagen = models.ImageField(upload_to='Conferencia', default='static/default.jpg')
+	costo = models.FloatField()
+
+	def __str__(self):
+		return self.nombre
+
+
 class Pelicula(models.Model):
 	proyeccion = models.ForeignKey('Proyeccion')
 
 	nombre = models.CharField(max_length=100)
-	imagen = models.ImageField(upload_to='peliculas', default='static/default.jpg')
+	poster = models.ImageField(upload_to='peliculas', default='static/default.jpg')
+	still = models.ImageField(upload_to='peliculas', default='static/default.jpg')
 	sinopsis = models.CharField(max_length=500)
 	trailer = models.CharField(max_length=1000)
 
