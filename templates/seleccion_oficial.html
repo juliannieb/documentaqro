@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="section scrollspy" id="work">
+    <div class="container">
+    	<h4 class="header text_b">Selección oficial</h4>
+    	<div class="row">
+    		<div class="input-field col s12" style="float:right;">
+    		  <div class="col s12 m6 l6" style="padding:3px">
+    		  	<a class="waves-effect waves-light btn col s12" id="btn_seleccion_nacional" style="background:{{ evento.color }}">Nacional</a>
+    		  </div>
+    		  <div class="col s12 m6 l6" style="padding:3px">
+    		  	<a class="waves-effect waves-light btn col s12" id="btn_seleccion_internacional" style="background:{{ evento.color }}">Internacional</a>
+    		  </div>
+	          
+	          
+	        </div>
+    	</div>
+    	<div id="div_peliculas">
+    		<div class="row">
+		    	{% for pelicula in seleccion_oficial %}
+		            <div class="col s12 m6 l4">
+		                <div class="card" style="height: 500px">
+		                    <div class="card-image waves-effect waves-block waves-light">
+		                        <img class="activator" src="{{ pelicula.poster.url }}" style="height: 150px">
+		                    </div>
+		                    <div class="card-content">
+		                        <span class="card-title activator grey-text text-darken-4">{{ pelicula.nombre }}
+		                        <p><a href="{% url 'pelicula' pelicula.pk %}">Ver más</a></p>
+		                    </div>
+		                </div>
+		            </div>
+	        	{% endfor %}
+	        </div>
+
+	        <div class="pagination">
+			    <span class="step-links">
+			        {% if seleccion_oficial.has_previous %}
+			            <a href="?page={{ seleccion_oficial.previous_page_number }}">Anterior</a>
+			        {% endif %}
+
+			        <span class="current">
+			            Página {{ seleccion_oficial.number }} de {{ seleccion_oficial.paginator.num_pages }}.
+			        </span>
+
+			        {% if seleccion_oficial.has_next %}
+			            <a href="?page={{ seleccion_oficial.next_page_number }}">Siguiente</a>
+			        {% endif %}
+			    </span>
+			</div>
+    	</div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block scripts %}
+<script>
+    $(function() {
+        $("#btn_seleccion_nacional").click(function() {
+            $.ajax({
+                url: "{% url 'seleccion_oficial_filtro' evento.pk 'nacional' %}",
+                context: document.body
+            }).done(function(data) {
+                $("#div_peliculas").html(data);
+            });
+        });
+        $("#btn_seleccion_internacional").click(function() {
+            $.ajax({
+                url: "{% url 'seleccion_oficial_filtro' evento.pk 'internacional' %}",
+                context: document.body
+            }).done(function(data) {
+                $("#div_peliculas").html(data);
+            });
+        });
+    });
+</script>
+{% endblock scripts %}
