@@ -12,8 +12,12 @@
                 <ul class="hide-on-med-and-down center">
                     <li><a href="#inicio" style="color:{{ evento.color_texto_nav }};">{{ evento.nombre }}</a></li>
                     <li><a href="#programa" style="color:{{ evento.color_texto_nav }};">Programa</a></li>
+                    {% if jurado %}
                     <li><a href="#jurado" style="color:{{ evento.color_texto_nav }};">Jurado</a></li>
+                    {% endif %}
+                    {% if evento.arte %}
                     <li><a href="#arte" style="color:{{ evento.color_texto_nav }};">Arte</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -61,21 +65,22 @@
         <h4 class="header text_b">Programa</h4>
         <div class="row">
         	{% if seleccion_oficial %}
-                <a class="waves-effect waves-light btn">Selección oficial</a>
+                <a class="waves-effect waves-light btn col s12 m3 l3 btn_programa">Selección oficial</a>
             {% endif %}
             {% if proyecciones %}
-                <a class="waves-effect waves-light btn">Proyecciones</a>
+                <a class="waves-effect waves-light btn col s12 m3 l3 btn_programa">Proyecciones</a>
             {% endif %}
             {% if conferencias %}
-                <a class="waves-effect waves-light btn">Conferencias</a>
+                <a class="waves-effect waves-light btn col s12 m3 l3 btn_programa">Conferencias</a>
             {% endif %}
             {% if talleres %}
-                <a class="waves-effect waves-light btn">Talleres</a>
+                <a class="waves-effect waves-light btn col s12 m3 l3 btn_programa">Talleres</a>
             {% endif %}
         </div>
     </div>
 </div>
 
+{% if jurado %}
 <div class="divider" id="jurado"></div>
 
 </br>
@@ -93,6 +98,9 @@
     </div>
 </div>
 
+{% endif %}
+
+{% if evento.arte %}
 <div class="divider" id="arte"></div>
 
 </br>
@@ -109,7 +117,9 @@
         </div>
     </div>
 </div>
+{% endif %}
 
+{% if evento.patrocinadores %}
 <div class="divider" id="patrocinadores"></div>
 
 </br>
@@ -126,6 +136,7 @@
         </div>
     </div>
 </div>
+{% endif %}
 
 {% else %}
 

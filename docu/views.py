@@ -128,11 +128,16 @@ def evento(request, festival_id):
 	if eventos_proximos:
 		evento = eventos_proximos[0]
 		seleccion_oficial = Pelicula.objects.filter(evento=evento.pk, es_seleccion_oficial=True)
+		proyecciones = Proyeccion.objects.filter(evento=evento.pk)
+		conferencias = Conferencia.objects.filter(evento=evento.pk)
+		talleres = Taller.objects.filter(evento=evento.pk)
+		jurado = Jurado.objects.filter(evento=evento.pk)
 		context['evento'] = evento
 		context['seleccion_oficial'] = seleccion_oficial
-		context['proyecciones'] = 10
-		context['conferencias'] = 10
-		context['talleres'] = 10
+		context['proyecciones'] = proyecciones
+		context['conferencias'] = conferencias
+		context['talleres'] = talleres
+		context['jurado'] = jurado
 	festivales = Festival.objects.all()
 	context['festivales'] = festivales
 	return render(request, 'evento.html', context)

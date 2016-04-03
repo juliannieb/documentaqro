@@ -1,3 +1,7 @@
 nav#nav_principal ul li a{
   color: black;
 }
+
+.btn_programa {
+	margin: 3px;
+}
