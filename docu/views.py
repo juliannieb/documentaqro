@@ -122,7 +122,7 @@ def evento(request, festival_id):
 	"""Vista de un evento
 	"""
 	context = {}
-	#festival = Festival.objects.get(pk=festival_id)
+	festival = get_object_or_404(Festival, pk=festival_id)
 	today = timezone.now()
 	eventos_proximos = Evento.objects.filter(festival=festival_id, fecha_fin__gt=today)
 	if eventos_proximos:
@@ -140,6 +140,7 @@ def evento(request, festival_id):
 		context['jurado'] = jurado
 	festivales = Festival.objects.all()
 	context['festivales'] = festivales
+	context['festival'] = festival
 	return render(request, 'evento.html', context)
 
 def seleccion_oficial(request, evento_id):
@@ -190,6 +191,39 @@ def seleccion_oficial_filtro(request, evento_id, tipo_seleccion):
 	context['origen_seleccion_oficial'] = tipo_seleccion
 	return render(request, 'seleccion_oficial_filtro.html', context)
 
+def eventos_anteriores(request, festival_id):
+	"""Vista de un evento
+	"""
+	context = {}
+	#festival = Festival.objects.get(pk=festival_id)
+	today = timezone.now()
+	eventos_anteriores = Evento.objects.filter(festival=festival_id, fecha_fin__lt=today)
+	festivales = Festival.objects.all()
+	context['festivales'] = festivales
+	context['eventos_anteriores'] = eventos_anteriores
+	return render(request, 'eventos_anteriores.html', context)
+
+def evento_anterior(request, evento_id):
+	"""Vista de un evento anterior
+	"""
+	context = {}
+	evento = get_object_or_404(Evento, pk=evento_id)
+	festival = evento.festival
+	seleccion_oficial = Pelicula.objects.filter(evento=evento.pk, es_seleccion_oficial=True)
+	proyecciones = Proyeccion.objects.filter(evento=evento.pk)
+	conferencias = Conferencia.objects.filter(evento=evento.pk)
+	talleres = Taller.objects.filter(evento=evento.pk)
+	jurado = Jurado.objects.filter(evento=evento.pk)
+	context['evento'] = evento
+	context['seleccion_oficial'] = seleccion_oficial
+	context['proyecciones'] = proyecciones
+	context['conferencias'] = conferencias
+	context['talleres'] = talleres
+	context['jurado'] = jurado
+	festivales = Festival.objects.all()
+	context['festivales'] = festivales
+	context['festival'] = festival
+	return render(request, 'evento.html', context)
 
 def pelicula(request, pelicula_id):
 	"""Patrocinadores generales de DocumentaQro
