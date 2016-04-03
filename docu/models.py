@@ -54,7 +54,7 @@ class Proyeccion(models.Model):
 	descripcion = models.CharField(max_length=500)
 
 	def __str__(self):
-		return self.nombre + " - " + self.fecha_y_hora
+		return self.nombre + " - " + self.fecha_y_hora.strftime('%d-%B-%Y %H:%M')
 
 class Taller(models.Model):
 	evento = models.ForeignKey('Evento')
