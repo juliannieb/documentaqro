@@ -93,7 +93,7 @@ class Pelicula(models.Model):
 	nombre = models.CharField(max_length=100)
 	poster = models.ImageField(upload_to='peliculas', default='static/default.jpg')
 	still = models.ImageField(upload_to='peliculas', default='static/default.jpg')
-	sinopsis = models.CharField(max_length=500)
+	sinopsis = models.CharField(max_length=1000)
 	duracion = models.IntegerField()
 	director = models.CharField(max_length=1000)
 	year = models.IntegerField()
