@@ -59,7 +59,7 @@
         <div class="row">
             <div  class="col s12 m4 l4">
                 <div class="center promo promo-example">
-                    <a href="https://www.facebook.com/DocumentaQro/" target="_blank">
+                    <a href="{{ redes_sociales.facebook }}" target="_blank">
                       <img src="{% static "img/facebook_circle_2.png" %}">
                       <h5 class="promo-caption flow-text">Síguenos en Facebook</h5>
                     </a>
@@ -67,7 +67,7 @@
             </div>
             <div class="col s12 m4 l4">
                 <div class="center promo promo-example">
-                    <a href="https://twitter.com/DocumentaQro" target="_blank">
+                    <a href="{{ redes_sociales.twitter }}" target="_blank">
                       <img src="{% static "img/twitter_circle.png" %}">
                       <h5 class="promo-caption flow-text">Síguenos en Twitter</h5>
                     </a>
@@ -75,7 +75,7 @@
             </div>
             <div  class="col s12 m4 l4">
                 <div class="center promo promo-example">
-                    <a href="https://www.instagram.com/DocumentaQro/" target="_blank">
+                    <a href="{{ redes_sociales.instagram }}" target="_blank">
                       <img src="{% static "img/instagram_circle_2.png" %}">
                       <h5 class="promo-caption flow-text">Síguenos en Instagram</h5>
                     </a>
@@ -83,7 +83,7 @@
             </div>
             <div class="col s12 m6 l6">
                 <div class="center promo promo-example">
-                    <a href="mailto:youremailaddress">
+                    <a href="mailto:{{ redes_sociales.correo_principal }}">
                       <img src="{% static "img/mail_circle_2.png" %}">
                       <h5 class="promo-caption flow-text">hola@documentaqro.com</h5>
                     </a>
@@ -91,7 +91,7 @@
             </div>
             <div class="col s12 m6 l6">
                 <div class="center promo promo-example">
-                    <a href="">
+                    <a href="{{ redes_sociales.mailchimp }}" target="_blank">
                       <img src="{% static "img/list_circle_2.png" %}">
                       <h5 class="promo-caption flow-text">Suscríbete</h5>
                     </a>

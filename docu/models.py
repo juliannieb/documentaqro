@@ -65,6 +65,7 @@ class Taller(models.Model):
 	fecha_y_hora = models.DateTimeField('Fecha y hora')
 	imagen = models.ImageField(upload_to='talleres', default='static/default.jpg')
 	costo = models.FloatField()
+	link_inscripcion = models.CharField(max_length=2000)
 
 	def __str__(self):
 		return self.nombre
@@ -164,3 +165,13 @@ class Contacto(models.Model):
 
 	def __str__(self):
 		return self.nombre + " - " + self.fecha_y_hora.strftime('%d-%B-%Y %H:%M') + " - " + self.correo + " - " + self.mensaje
+
+class RedesSociales(models.Model):
+	facebook = models.CharField(max_length=2000)
+	twitter = models.CharField(max_length=2000)
+	instagram = models.CharField(max_length=2000)
+	mailchimp = models.CharField(max_length=2000)
+	correo_principal = models.CharField(max_length=100)
+
+	def __str__(self):
+		return "Redes sociales"

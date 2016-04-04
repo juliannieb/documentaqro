@@ -8,15 +8,23 @@ from .forms import ContactoForm
 
 # Create your views here.
 
+def get_redes_sociales():
+	redes_sociales = RedesSociales.objects.all()
+	if redes_sociales:
+		redes_sociales = redes_sociales[0]
+	return redes_sociales
+
 def index(request):
 	""" Index de la pagina
 	"""
 	context = {}
 	highlights = Highlights.objects.all()
 	festivales = Festival.objects.all()
+	redes_sociales = get_redes_sociales()
 	blog = BlogPost.objects.all()
 	context['highlights'] = highlights
 	context['festivales'] = festivales
+	context['redes_sociales'] = redes_sociales
 	context['blog'] = blog[:3]
 	return render(request, 'index.html', context)
 
@@ -45,7 +53,9 @@ def nosotros(request):
 	equipo = MiembroEquipo.objects.all()
 	staff = MiembroStaff.objects.all()
 	festivales = Festival.objects.all()
+	redes_sociales = get_redes_sociales()
 	context['festivales'] = festivales
+	context['redes_sociales'] = redes_sociales
 	context['equipo'] = equipo
 	context['staff'] = staff
 	return render(request, 'nosotros.html', context)
