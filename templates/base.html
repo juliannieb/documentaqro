@@ -18,6 +18,7 @@
     <link href="{% static "min/custom-min.css" %}" type="text/css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
     <link href="{% static 'css/general.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"> 
 </head>
 <body id="top" class="scrollspy">
 
@@ -69,6 +70,18 @@
             </div>
         </div>
     </nav>
+</div>
+
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-large red">
+      <i class="zmdi zmdi-link"></i>
+    </a>
+    <ul>
+      <li><a class="btn-floating blue darken-4" href="{{ redes_sociales.facebook }}" target="_blank"><i class="zmdi zmdi-facebook"></i></a></li>
+      <li><a class="btn-floating blue lighten-1" href="{{ redes_sociales.twitter }}" target="_blank"><i class="zmdi zmdi-twitter"></i></a></li>
+      <li><a class="btn-floating lime darken-4" href="{{ redes_sociales.instagram }}" target="_blank"><i class="zmdi zmdi-instagram"></i></a></li>
+      <li><a class="btn-floating deep-orange darken-1" href="{{ redes_sociales.mailchimp }}" target="_blank"><i class="zmdi zmdi-email"></i></a></li>
+    </ul>
 </div>
 
 {% block content %}

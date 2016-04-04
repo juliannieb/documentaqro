@@ -33,7 +33,9 @@ def patrocinadores(request):
 	"""
 	context = {}
 	festivales = Festival.objects.all()
+	redes_sociales = get_redes_sociales()
 	context['festivales'] = festivales
+	context['redes_sociales'] = redes_sociales
 	return render(request, 'patrocinadores.html', context)
 
 def nosotros(request):
@@ -76,7 +78,9 @@ def blog(request):
 		# If page is out of range (e.g. 9999), deliver last page of results.
 		blog = paginator.page(paginator.num_pages)
 	festivales = Festival.objects.all()
+	redes_sociales = get_redes_sociales()
 	context['festivales'] = festivales
+	context['redes_sociales'] = redes_sociales
 	context['blog'] = blog
 	return render(request, 'blog.html', context)
 
@@ -86,7 +90,9 @@ def blog_post(request, post_id):
 	post = BlogPost.objects.get(pk=post_id)
 	context = {}
 	festivales = Festival.objects.all()
+	redes_sociales = get_redes_sociales()
 	context['festivales'] = festivales
+	context['redes_sociales'] = redes_sociales
 	context['post'] = post
 	return render(request, 'blog_post.html', context)
 
@@ -124,7 +130,9 @@ def contacto(request):
 	else:
 		form = ContactoForm()
 	festivales = Festival.objects.all()
+	redes_sociales = get_redes_sociales()
 	context['festivales'] = festivales
+	context['redes_sociales'] = redes_sociales
 	context['form'] = form
 	return render(request, 'contacto.html', context)
 
@@ -149,7 +157,9 @@ def evento(request, festival_id):
 		context['talleres'] = talleres
 		context['jurado'] = jurado
 	festivales = Festival.objects.all()
+	redes_sociales = get_redes_sociales()
 	context['festivales'] = festivales
+	context['redes_sociales'] = redes_sociales
 	context['festival'] = festival
 	return render(request, 'evento.html', context)
 
@@ -170,7 +180,9 @@ def seleccion_oficial(request, evento_id):
 		# If page is out of range (e.g. 9999), deliver last page of results.
 		seleccion_oficial = paginator.page(paginator.num_pages)
 	festivales = Festival.objects.all()
+	redes_sociales = get_redes_sociales()
 	context['festivales'] = festivales
+	context['redes_sociales'] = redes_sociales
 	context['evento'] = evento
 	context['seleccion_oficial'] = seleccion_oficial
 	return render(request, 'seleccion_oficial.html', context)
@@ -195,7 +207,9 @@ def seleccion_oficial_filtro(request, evento_id, tipo_seleccion):
 		# If page is out of range (e.g. 9999), deliver last page of results.
 		seleccion_oficial = paginator.page(paginator.num_pages)
 	festivales = Festival.objects.all()
+	redes_sociales = get_redes_sociales()
 	context['festivales'] = festivales
+	context['redes_sociales'] = redes_sociales
 	context['evento'] = evento
 	context['seleccion_oficial'] = seleccion_oficial
 	context['origen_seleccion_oficial'] = tipo_seleccion
@@ -209,7 +223,9 @@ def eventos_anteriores(request, festival_id):
 	today = timezone.now()
 	eventos_anteriores = Evento.objects.filter(festival=festival_id, fecha_fin__lt=today)
 	festivales = Festival.objects.all()
+	redes_sociales = get_redes_sociales()
 	context['festivales'] = festivales
+	context['redes_sociales'] = redes_sociales
 	context['eventos_anteriores'] = eventos_anteriores
 	return render(request, 'eventos_anteriores.html', context)
 
@@ -231,7 +247,9 @@ def evento_anterior(request, evento_id):
 	context['talleres'] = talleres
 	context['jurado'] = jurado
 	festivales = Festival.objects.all()
+	redes_sociales = get_redes_sociales()
 	context['festivales'] = festivales
+	context['redes_sociales'] = redes_sociales
 	context['festival'] = festival
 	return render(request, 'evento.html', context)
 
@@ -241,7 +259,9 @@ def pelicula(request, pelicula_id):
 	context = {}
 	pelicula = get_object_or_404(Pelicula, pk=pelicula_id)
 	festivales = Festival.objects.all()
+	redes_sociales = get_redes_sociales()
 	context['festivales'] = festivales
+	context['redes_sociales'] = redes_sociales
 	return render(request, 'pelicula.html', context)
 
 def proyecciones(request, evento_id):
@@ -273,7 +293,9 @@ def proyecciones(request, evento_id):
 		# If page is out of range (e.g. 9999), deliver last page of results.
 		days = paginator.page(paginator.num_pages)
 	festivales = Festival.objects.all()
+	redes_sociales = get_redes_sociales()
 	context['festivales'] = festivales
+	context['redes_sociales'] = redes_sociales
 	context['evento'] = evento
 	context['proyecciones'] = proyecciones
 	context['days'] = days
@@ -308,7 +330,9 @@ def talleres(request, evento_id):
 		# If page is out of range (e.g. 9999), deliver last page of results.
 		days = paginator.page(paginator.num_pages)
 	festivales = Festival.objects.all()
+	redes_sociales = get_redes_sociales()
 	context['festivales'] = festivales
+	context['redes_sociales'] = redes_sociales
 	context['evento'] = evento
 	context['talleres'] = talleres
 	context['days'] = days
@@ -343,7 +367,9 @@ def conferencias(request, evento_id):
 		# If page is out of range (e.g. 9999), deliver last page of results.
 		days = paginator.page(paginator.num_pages)
 	festivales = Festival.objects.all()
+	redes_sociales = get_redes_sociales()
 	context['festivales'] = festivales
+	context['redes_sociales'] = redes_sociales
 	context['evento'] = evento
 	context['conferencias'] = conferencias
 	context['days'] = days
