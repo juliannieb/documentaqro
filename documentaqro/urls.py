@@ -36,4 +36,5 @@ urlpatterns = [
     url(r'^pelicula/(?P<pelicula_id>[0-9]+)', views.pelicula, name='pelicula'),
     url(r'^evento/(?P<evento_id>[0-9]+)/proyecciones/', views.proyecciones, name='proyecciones'),
     url(r'^evento/(?P<evento_id>[0-9]+)/talleres/', views.talleres, name='talleres'),
+    url(r'^evento/(?P<evento_id>[0-9]+)/conferencias/', views.conferencias, name='conferencias'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
