@@ -268,3 +268,38 @@ def proyecciones(request, evento_id):
 	context['proyecciones'] = proyecciones
 	context['days'] = days
 	return render(request, 'proyecciones.html', context)
+
+def talleres(request, evento_id):
+	"""Proyecciones
+	"""
+	context = {}
+	evento = get_object_or_404(Evento, pk=evento_id)
+	talleres_query = Taller.objects.filter(evento=evento.pk).order_by('fecha_y_hora')
+	talleres = {}
+	days = []
+	for proyeccion in talleres_query:
+		fecha = proyeccion.fecha_y_hora.strftime('%Y-%m-%d')
+		if fecha in days:
+			talleres[fecha].append(proyeccion)
+		else:
+			talleres[fecha] = []
+			talleres[fecha].append(proyeccion)
+			days.append(fecha)
+	print(talleres)
+	days.sort()
+	paginator = Paginator(days, 24)
+	page = request.GET.get('page')
+	try:
+		days = paginator.page(page)
+	except PageNotAnInteger:
+		# If page is not an integer, deliver first page.
+		days = paginator.page(1)
+	except EmptyPage:
+		# If page is out of range (e.g. 9999), deliver last page of results.
+		days = paginator.page(paginator.num_pages)
+	festivales = Festival.objects.all()
+	context['festivales'] = festivales
+	context['evento'] = evento
+	context['talleres'] = talleres
+	context['days'] = days
+	return render(request, 'talleres.html', context)
