@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+      <div class="row">
+        <div class="s12 center-align center circle valign center-block">
+          <div class="center-align center circle valign center-block" style="background:white;padding:5px;display: inline-block;">
+            <a href="{% url 'evento_anterior' evento.pk %}"><img class="center-align center circle responsive-img valign center-block" src="{{ evento.logo.url }}" style="width:120px;height:120px;"></a>
+          </div>
+        </div>
+        <div class="s12 center-align center valign center-block">
+          <h3 class="black-text">{{ evento.nombre }}</h3>
+        </div>
+      </div>
+</div>
+
+<div class="section scrollspy" id="work">
+    <div class="container">
+    	<h4 class="header text_b">Proyecciones</h4>
+    	<!-- <div class="row">
+    		<div class="input-field col s12" style="float:right;">
+    		  <div class="col s12 m6 l6" style="padding:3px">
+    		  	<a class="waves-effect waves-light btn col s12" id="btn_seleccion_nacional" style="background:{{ evento.color }}">Nacional</a>
+    		  </div>
+    		  <div class="col s12 m6 l6" style="padding:3px">
+    		  	<a class="waves-effect waves-light btn col s12" id="btn_seleccion_internacional" style="background:{{ evento.color }}">Internacional</a>
+    		  </div>
+	          
+	          
+	        </div>
+    	</div> -->
+    	<div id="div_proyecciones">
+          {% for fecha in days %}
+		    	 {% for dia, proyecciones_list in proyecciones.items %}
+             {% if fecha == dia %}
+              <div class="row">
+              <h4>{{ dia }}</h4>
+                  {% for proyeccion in proyecciones_list %}
+  		            <div class="col s12 m6 l4">
+  		                <div class="card" style="height: 500px">
+  		                    <div class="card-image waves-effect waves-block waves-light">
+  		                        <img class="activator" src="{{ proyeccion.sede.imagen.url }}" style="height: 150px">
+  		                    </div>
+  		                    <div class="card-content">
+                              <h5>{{ proyeccion.nombre }}</h5>
+                              <p>{{ proyeccion.descripcion }}</p>
+                              <p><b>Hora:</b> {{ proyeccion.fecha_y_hora|date:"H:i" }}</p>
+                              <p><b>Lugar:</b> {{ proyeccion.sede.nombre }}</p>
+                              <p></p>
+                              <p></p>
+  		                        <p><a class="modal-trigger waves-effect waves-light" href="#modal{{ proyeccion.pk }}">Ver más</a></p>
+  		                    </div>
+  		                </div>
+  		            </div>
+                  {% endfor %}
+              </div>
+              {% endif %}
+	        	{% endfor %}
+          {% endfor %}
+
+	        <div class="pagination">
+			    <span class="step-links">
+			        {% if days.has_previous %}
+			            <a href="?page={{ days.previous_page_number }}">Anterior</a>
+			        {% endif %}
+
+			        <span class="current">
+			            Página {{ days.number }} de {{ days.paginator.num_pages }}.
+			        </span>
+
+			        {% if days.has_next %}
+			            <a href="?page={{ days.next_page_number }}">Siguiente</a>
+			        {% endif %}
+			    </span>
+			</div>
+    	</div>
+    </div>
+</div>
+
+{% endblock content %}
