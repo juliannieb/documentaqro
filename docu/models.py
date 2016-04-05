@@ -175,3 +175,10 @@ class RedesSociales(models.Model):
 
 	def __str__(self):
 		return "Redes sociales"
+
+class Index(models.Model):
+	descripcion_inicial = models.TextField()
+	imagen_parallax_inicial = models.ImageField(upload_to='index', default='static/default.jpg')
+
+	def __str__(self):
+		return "Index"

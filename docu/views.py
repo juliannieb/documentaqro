@@ -8,6 +8,12 @@ from .forms import ContactoForm
 
 # Create your views here.
 
+def get_index():
+	index = Index.objects.all()
+	if index:
+		index = index[0]
+	return index
+
 def get_redes_sociales():
 	redes_sociales = RedesSociales.objects.all()
 	if redes_sociales:
@@ -18,10 +24,12 @@ def index(request):
 	""" Index de la pagina
 	"""
 	context = {}
+	index = get_index()
 	highlights = Highlights.objects.all()
 	festivales = Festival.objects.all()
 	redes_sociales = get_redes_sociales()
 	blog = BlogPost.objects.all()
+	context['index'] = index
 	context['highlights'] = highlights
 	context['festivales'] = festivales
 	context['redes_sociales'] = redes_sociales
