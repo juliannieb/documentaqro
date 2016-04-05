@@ -45,20 +45,6 @@
                     <li><a href="{% url 'blog' %}">Blog</a></li>
                 </ul>
                 <ul id="nav-mobile" class="side-nav"> 
-                    <li class="no-padding">
-                        <ul class="collapsible collapsible-accordion">
-                            <li class="bold">
-                                <a class="collapsible-header waves-effect waves-teal" >Eventos</a>
-                                <div class="collapsible-body">
-                                    <ul>
-                                        {% for festival in festivales %}
-                                            <li><a href="{% url 'evento' festival.pk %}" style="font-size:10px;">{{ festival.nombre }}</a></li>
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
                     {% for festival in festivales %}
                         <li><a href="{% url 'evento' festival.pk %}">{{ festival.nombre_corto }}</a></li>
                     {% endfor %}
