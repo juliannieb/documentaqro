@@ -82,10 +82,10 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": "documentaqro",
-        "USER": "documentaqrouser",
+        "USER": "documentaqro",
         "PASSWORD": "documentaqro",
         "HOST": "localhost",
-        "PORT": "",
+        "PORT": "5432",
     }
 }
 
@@ -128,6 +128,7 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
