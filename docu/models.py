@@ -12,11 +12,17 @@ class Highlights(models.Model):
 	def __str__(self):
 		return str(self.pk) + " - " + self.titulo
 
+	def __unicode__(self):
+		return str(self.pk) + " - " + self.titulo
+
 class Festival(models.Model):
 	nombre = models.CharField(max_length=100)
 	nombre_corto = models.CharField(max_length=100)
 
 	def __str__(self):
+		return self.nombre
+
+	def __unicode__(self):
 		return self.nombre
 
 class Sede(models.Model):
@@ -26,6 +32,9 @@ class Sede(models.Model):
 	longitud = models.FloatField()
 
 	def __str__(self):
+		return self.nombre
+
+	def __unicode__(self):
 		return self.nombre
 
 class Evento(models.Model):
@@ -45,6 +54,9 @@ class Evento(models.Model):
 	def __str__(self):
 		return self.nombre
 
+	def __unicode__(self):
+		return self.nombre
+
 class Proyeccion(models.Model):
 	evento = models.ForeignKey('Evento')
 	sede = models.ForeignKey('Sede')
@@ -54,6 +66,9 @@ class Proyeccion(models.Model):
 	descripcion = models.CharField(max_length=500)
 
 	def __str__(self):
+		return self.nombre + " - " + self.fecha_y_hora.strftime('%d-%B-%Y %H:%M')
+
+	def __unicode__(self):
 		return self.nombre + " - " + self.fecha_y_hora.strftime('%d-%B-%Y %H:%M')
 
 class Taller(models.Model):
@@ -70,6 +85,9 @@ class Taller(models.Model):
 	def __str__(self):
 		return self.nombre
 
+	def __unicode__(self):
+		return self.nombre
+
 class Conferencia(models.Model):
 	evento = models.ForeignKey('Evento')
 	sede = models.ForeignKey('Sede')
@@ -82,6 +100,9 @@ class Conferencia(models.Model):
 	costo = models.FloatField()
 
 	def __str__(self):
+		return self.nombre
+
+	def __unicode__(self):
 		return self.nombre
 
 
@@ -103,6 +124,9 @@ class Pelicula(models.Model):
 	def __str__(self):
 		return self.nombre
 
+	def __unicode__(self):
+		return self.nombre
+
 class Jurado(models.Model):
 	evento = models.ForeignKey('Evento')
 
@@ -111,6 +135,9 @@ class Jurado(models.Model):
 	foto = models.ImageField(upload_to='jurado', default='static/default.jpg')
 
 	def __str__(self):
+		return self.nombre
+
+	def __unicode__(self):
 		return self.nombre
 
 
@@ -122,10 +149,16 @@ class Subscriptor(models.Model):
 	def __str__(self):
 		return self.nombre + " " + self.apellido
 
+	def __unicode__(self):
+		return self.nombre + " " + self.apellido
+
 class Area(models.Model):
 	nombre = models.CharField(max_length=25)
 
 	def __str__(self):
+		return self.nombre
+
+	def __unicode__(self):
 		return self.nombre
 
 class MiembroEquipo(models.Model):
@@ -137,6 +170,9 @@ class MiembroEquipo(models.Model):
 	def __str__(self):
 		return self.nombre
 
+	def __unicode__(self):
+		return self.nombre
+
 class MiembroStaff(models.Model):
 	area = models.ForeignKey('Area')
 	
@@ -146,15 +182,21 @@ class MiembroStaff(models.Model):
 	def __str__(self):
 		return self.nombre
 
+	def __unicode__(self):
+		return self.nombre
+
 class BlogPost(models.Model):
 	titulo = models.CharField(max_length=100)
 	autores = models.CharField(max_length=500)
 	fecha = models.DateField('Fecha')
 	imagen = models.ImageField(upload_to='posts', default='static/default.jpg')
 	contenido = models.TextField(default="")
-	video = models.CharField(max_length=1000)
+	video = models.CharField(max_length=1000, null=True, blank=True)
 
 	def __str__(self):
+		return self.titulo
+
+	def __unicode__(self):
 		return self.titulo
 
 class Contacto(models.Model):
@@ -164,6 +206,9 @@ class Contacto(models.Model):
 	fecha_y_hora = models.DateTimeField('Fecha y hora')
 
 	def __str__(self):
+		return self.nombre + " - " + self.fecha_y_hora.strftime('%d-%B-%Y %H:%M') + " - " + self.correo + " - " + self.mensaje
+
+	def __unicode__(self):
 		return self.nombre + " - " + self.fecha_y_hora.strftime('%d-%B-%Y %H:%M') + " - " + self.correo + " - " + self.mensaje
 
 class RedesSociales(models.Model):
@@ -176,9 +221,15 @@ class RedesSociales(models.Model):
 	def __str__(self):
 		return "Redes sociales"
 
+	def __unicode__(self):
+		return "Redes sociales"
+
 class Index(models.Model):
 	descripcion_inicial = models.TextField()
 	imagen_parallax_inicial = models.ImageField(upload_to='index', default='static/default.jpg')
 
 	def __str__(self):
+		return "Index"
+
+	def __unicode__(self):
 		return "Index"
