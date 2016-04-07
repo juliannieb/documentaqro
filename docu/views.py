@@ -287,7 +287,6 @@ def proyecciones(request, evento_id):
 			proyecciones[fecha] = []
 			proyecciones[fecha].append(proyeccion)
 			days.append(fecha)
-	print(proyecciones)
 	days.sort()
 	paginator = Paginator(days, 24)
 	page = request.GET.get('page')
@@ -324,7 +323,6 @@ def talleres(request, evento_id):
 			talleres[fecha] = []
 			talleres[fecha].append(proyeccion)
 			days.append(fecha)
-	print(talleres)
 	days.sort()
 	paginator = Paginator(days, 24)
 	page = request.GET.get('page')
@@ -361,7 +359,6 @@ def conferencias(request, evento_id):
 			conferencias[fecha] = []
 			conferencias[fecha].append(proyeccion)
 			days.append(fecha)
-	print(conferencias)
 	days.sort()
 	paginator = Paginator(days, 24)
 	page = request.GET.get('page')
