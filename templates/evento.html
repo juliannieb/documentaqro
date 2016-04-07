@@ -108,6 +108,9 @@
     <div class="container">
         <h4 class="header text_b">Jurado</h4>
         <div class="row">
+            <div class="col s12">
+                <h4 class="center header text_h2 flow-text">{{ evento.texto_introductorio_jurado }}</h4>
+            </div>
         	{% for miembro in jurado %}
             <div class="col s12 m3">
                 <div class="card card-avatar" style="height: 300px;">
@@ -144,6 +147,9 @@
     <div class="container">
         <h4 class="header text_b">Invitados especiales</h4>
         <div class="row">
+            <div class="col s12">
+                <h4 class="center header text_h2 flow-text">{{ evento.texto_introductorio_invitados_especiales }}</h4>
+            </div>
             {% for miembro in invitados_especiales %}
             <div class="col s12 m3">
                 <div class="card card-avatar" style="height: 300px;">
@@ -180,9 +186,12 @@
     <div class="container">
         <h4 class="header text_b">Talleristas</h4>
         <div class="row">
+            <div class="col s12">
+                <h4 class="center header text_h2 flow-text">{{ evento.texto_introductorio_talleristas }}</h4>
+            </div>
             {% for miembro in talleristas %}
             <div class="col s12 m3">
-                <div class="card card-avatar" style="height: 300px;">
+                <div class="card card-avatar">
                     <div class="waves-effect waves-block waves-light">
                         <img class="activator" src="{{ miembro.foto.url }}" style="margin-top: 5px;">
                     </div>
