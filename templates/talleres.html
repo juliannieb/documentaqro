@@ -39,9 +39,9 @@
               <h4>{{ dia }}</h4>
                   {% for taller in talleres_list %}
   		            <div class="col s12 m6 l4">
-  		                <div class="card">
-  		                    <div class="card-image waves-effect waves-block waves-light">
-  		                        <img class="activator" src="{{ taller.imagen.url }}" style="height: 150px">
+  		                <div class="card card-avatar">
+  		                    <div class="waves-effect waves-block waves-light">
+  		                        <img class="activator" src="{{ taller.imagen.url }}" style="height: 150px;margin-top: 5px;">
   		                    </div>
   		                    <div class="card-content">
                               <h5>{{ taller.nombre }}</h5>
