@@ -6,7 +6,8 @@
                     <img class="activator" src="{{ pelicula.still.url }}" style="height: 150px">
                 </div>
                 <div class="card-content">
-                    <span class="grey-text text-darken-4">{{ pelicula.nombre }}
+                    <p>{{ pelicula.nombre }}</p>
+                    <p>Origen: {{ pelicula.origen }}</p>
                     <p><a class="modal-trigger waves-effect waves-light" href="#modal{{ pelicula.pk }}">Ver más</a></p>
                 </div>
             </div>
@@ -26,6 +27,7 @@
               </div>
               <div class="row">
                   <p><b>Director: </b>{{ pelicula.director }}</p>
+                  <p><b>Origen: </b>{{ pelicula.origen }}</p>
                   <p><b>Año: </b>{{ pelicula.year }}</p>
                   <p><b>Duración: </b>{{ pelicula.duracion }}</p>
               </div>

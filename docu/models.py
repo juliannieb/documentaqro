@@ -44,6 +44,9 @@ class Evento(models.Model):
 	descripcion = models.TextField(default="")
 	imagen_principal = models.ImageField(upload_to='eventos', default='static/default.jpg')
 	logo = models.ImageField(upload_to='eventos', default='static/default.jpg')
+	texto_introductorio_jurado = models.TextField(null=True, blank=True)
+	texto_introductorio_invitados_especiales = models.TextField(null=True, blank=True)
+	texto_introductorio_talleristas = models.TextField(null=True, blank=True)
 	patrocinadores = models.ImageField(upload_to='eventos', null=True, blank=True)
 	arte = models.ImageField(upload_to='eventos', null=True, blank=True)
 	color = models.CharField(max_length=7)
@@ -120,6 +123,7 @@ class Pelicula(models.Model):
 	duracion = models.CharField(max_length=30)
 	director = models.CharField(max_length=1000)
 	year = models.IntegerField()
+	origen = models.CharField(max_length=100)
 	trailer = models.CharField(max_length=1000, blank=True, null=True)
 
 	def __str__(self):
