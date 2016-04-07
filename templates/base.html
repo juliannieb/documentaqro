@@ -39,10 +39,10 @@
             <a href="{% url 'index' %}" id="logo-container" class="brand-logo"><img src="{% static "img/documentaqro_logo3.png" %}" class="responsive-img" style="margin-top:11px;"></a>
                 <ul class="right hide-on-med-and-down">
                     {% for festival in festivales %}
-                        <li class="active"><a href="{% url 'evento' festival.pk %}">{{ festival.nombre_corto }}</a></li>
+                        <li class="active"><a href="{% url 'evento' festival.pk %}" style="font-size:14px">{{ festival.nombre_corto }}</a></li>
                     {% endfor %}
-                    <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
-                    <li><a href="{% url 'blog' %}">Blog</a></li>
+                    <li><a href="{% url 'nosotros' %}" style="font-size:14px">Nosotros</a></li>
+                    <li><a href="{% url 'blog' %}" style="font-size:14px">Blog</a></li>
                 </ul>
                 <ul id="nav-mobile" class="side-nav"> 
                     {% for festival in festivales %}

@@ -82,7 +82,7 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": "documentaqro",
-        "USER": "documentaqro",
+        "USER": "documentaqrouser",
         "PASSWORD": "documentaqro",
         "HOST": "localhost",
         "PORT": "5432",
