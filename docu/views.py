@@ -108,7 +108,6 @@ def search_blog_posts(request):
 	"""Busqueda de un post
 	"""
 	search_string = request.GET.get('search_string', '')
-	print(search_string)
 	context = {}
 	blog = BlogPost.objects.filter(titulo__icontains=search_string)
 	paginator = Paginator(blog, 24)
