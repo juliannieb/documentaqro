@@ -45,10 +45,11 @@
   		                    </div>
   		                    <div class="card-content">
                               <h5>{{ taller.nombre }}</h5>
+                              <p><b>Tallerista:</b> {{ taller.nombre_tallerista }}</p>
                               <p>{{ taller.descripcion }}</p>
                               <p><b>Hora:</b> {{ taller.fecha_y_hora|date:"H:i" }}</p>
                               <p><b>Lugar:</b> {{ taller.sede.nombre }}</p>
-                              <p><b>Costo:</b> ${{ taller.costo}}</p>
+                              <p><b>Costo:</b> {{ taller.costo}}</p>
 
                               <p><a class="modal-trigger waves-effect waves-light btn" href="#modal{{ taller.pk }}" style="background:{{ evento.color }};color:{{ evento.color_texto_nav }}">Ver más</a></p>
 
@@ -67,7 +68,7 @@
                                     <div class="row">
                                         <p><b>Hora:</b> {{ taller.fecha_y_hora|date:"H:i" }}</p>
                                         <p><b>Lugar:</b> {{ taller.sede.nombre }}</p>
-                                        <p><b>Costo:</b> ${{ taller.costo}}</p>
+                                        <p><b>Costo:</b> {{ taller.costo}}</p>
 
                                     </div>
 

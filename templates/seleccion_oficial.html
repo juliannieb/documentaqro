@@ -34,7 +34,7 @@
     		<div class="row">
 		    	{% for pelicula in seleccion_oficial %}
 		            <div class="col s12 m6 l4">
-		                <div class="card" style="height: 400px">
+		                <div class="card" style="height: 350px">
 		                    <div class="card-image waves-effect waves-block waves-light">
 		                        <img class="activator" src="{{ pelicula.still.url }}" style="height: 150px">
 		                    </div>
@@ -60,7 +60,7 @@
                           <div class="row">
                               <p><b>Director: </b>{{ pelicula.director }}</p>
                               <p><b>Año: </b>{{ pelicula.year }}</p>
-                              <p><b>Duración: </b>{{ pelicula.duracion }} min.</p>
+                              <p><b>Duración: </b>{{ pelicula.duracion }}</p>
                           </div>
                           <div class="row">
                               <div class="col s12 m6">

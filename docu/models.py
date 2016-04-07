@@ -77,9 +77,10 @@ class Taller(models.Model):
 
 	nombre = models.CharField(max_length=100)
 	descripcion = models.CharField(max_length=2000)
+	nombre_tallerista = models.CharField(max_length=200)
 	fecha_y_hora = models.DateTimeField('Fecha y hora')
 	imagen = models.ImageField(upload_to='talleres', default='static/default.jpg')
-	costo = models.FloatField()
+	costo = models.CharField(max_length=150)
 	link_inscripcion = models.CharField(max_length=2000)
 
 	def __str__(self):
@@ -97,7 +98,7 @@ class Conferencia(models.Model):
 	nombre_conferencista = models.CharField(max_length=200)
 	fecha_y_hora = models.DateTimeField('Fecha y hora')
 	imagen = models.ImageField(upload_to='Conferencia', default='static/default.jpg')
-	costo = models.FloatField()
+	costo = models.CharField(max_length=150)
 
 	def __str__(self):
 		return self.nombre
@@ -116,7 +117,7 @@ class Pelicula(models.Model):
 	poster = models.ImageField(upload_to='peliculas', default='static/default.jpg')
 	still = models.ImageField(upload_to='peliculas', default='static/default.jpg')
 	sinopsis = models.CharField(max_length=1000)
-	duracion = models.IntegerField()
+	duracion = models.CharField(max_length=30)
 	director = models.CharField(max_length=1000)
 	year = models.IntegerField()
 	trailer = models.CharField(max_length=1000, blank=True, null=True)
@@ -233,3 +234,29 @@ class Index(models.Model):
 
 	def __unicode__(self):
 		return "Index"
+
+class Tallerista(models.Model):
+	evento = models.ForeignKey('Evento')
+
+	nombre = models.CharField(max_length=100)
+	descripcion = models.TextField()
+	foto = models.ImageField(upload_to='jurado', default='static/default.jpg')
+
+	def __str__(self):
+		return self.nombre
+
+	def __unicode__(self):
+		return self.nombre
+
+class InvitadoEspecial(models.Model):
+	evento = models.ForeignKey('Evento')
+
+	nombre = models.CharField(max_length=100)
+	descripcion = models.TextField()
+	foto = models.ImageField(upload_to='jurado', default='static/default.jpg')
+
+	def __str__(self):
+		return self.nombre
+
+	def __unicode__(self):
+		return self.nombre

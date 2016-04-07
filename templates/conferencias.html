@@ -49,7 +49,7 @@
                               <p>{{ conferencia.descripcion }}</p>
                               <p><b>Hora:</b> {{ conferencia.fecha_y_hora|date:"H:i" }}</p>
                               <p><b>Lugar:</b> {{ conferencia.sede.nombre }}</p>
-                              <p><b>Costo:</b> ${{ conferencia.costo}}</p>
+                              <p><b>Costo:</b> {{ conferencia.costo}}</p>
 
                               <p><a class="modal-trigger waves-effect waves-light btn" href="#modal{{ conferencia.pk }}" style="background:{{ evento.color }};color:{{ evento.color_texto_nav }}">Ver más</a></p>
 
@@ -69,7 +69,7 @@
                                         <h5>{{ conferencia.nombre_conferencista }}</h5>
                                         <p><b>Hora:</b> {{ conferencia.fecha_y_hora|date:"H:i" }}</p>
                                         <p><b>Lugar:</b> {{ conferencia.sede.nombre }}</p>
-                                        <p><b>Costo:</b> ${{ conferencia.costo}}</p>
+                                        <p><b>Costo:</b> {{ conferencia.costo}}</p>
 
                                     </div>
 

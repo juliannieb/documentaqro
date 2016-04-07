@@ -157,12 +157,16 @@ def evento(request, festival_id):
 		conferencias = Conferencia.objects.filter(evento=evento.pk)
 		talleres = Taller.objects.filter(evento=evento.pk)
 		jurado = Jurado.objects.filter(evento=evento.pk)
+		invitados_especiales = InvitadoEspecial.objects.filter(evento=evento.pk)
+		talleristas = Tallerista.objects.filter(evento=evento.pk)
 		context['evento'] = evento
 		context['seleccion_oficial'] = seleccion_oficial
 		context['proyecciones'] = proyecciones
 		context['conferencias'] = conferencias
 		context['talleres'] = talleres
 		context['jurado'] = jurado
+		context['invitados_especiales'] = invitados_especiales
+		context['talleristas'] = talleristas
 	festivales = Festival.objects.all()
 	redes_sociales = get_redes_sociales()
 	context['festivales'] = festivales
@@ -247,12 +251,16 @@ def evento_anterior(request, evento_id):
 	conferencias = Conferencia.objects.filter(evento=evento.pk)
 	talleres = Taller.objects.filter(evento=evento.pk)
 	jurado = Jurado.objects.filter(evento=evento.pk)
+	invitados_especiales = InvitadoEspecial.objects.filter(evento=evento.pk)
+	talleristas = Tallerista.objects.filter(evento=evento.pk)
 	context['evento'] = evento
 	context['seleccion_oficial'] = seleccion_oficial
 	context['proyecciones'] = proyecciones
 	context['conferencias'] = conferencias
 	context['talleres'] = talleres
 	context['jurado'] = jurado
+	context['invitados_especiales'] = invitados_especiales
+	context['talleristas'] = talleristas
 	festivales = Festival.objects.all()
 	redes_sociales = get_redes_sociales()
 	context['festivales'] = festivales

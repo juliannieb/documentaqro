@@ -15,6 +15,12 @@
                     {% if jurado %}
                     <li><a href="#jurado" style="color:{{ evento.color_texto_nav }};">Jurado</a></li>
                     {% endif %}
+                    {% if invitados_especiales %}
+                    <li><a href="#invitados_especiales" style="color:{{ evento.color_texto_nav }};">Invitados especiales</a></li>
+                    {% endif %}
+                    {% if talleristas %}
+                    <li><a href="#talleristas" style="color:{{ evento.color_texto_nav }};">Talleristas</a></li>
+                    {% endif %}
                     {% if evento.arte %}
                     <li><a href="#arte" style="color:{{ evento.color_texto_nav }};">Arte</a></li>
                     {% endif %}
@@ -123,6 +129,79 @@
 </div>
 
 {% endif %}
+
+
+{% if invitados_especiales %}
+<div class="divider" id="invitados_especiales"></div>
+
+</br>
+</br>
+</br>
+</br>
+</br>
+
+<div class="section scrollspy">
+    <div class="container">
+        <h4 class="header text_b">Invitados especiales</h4>
+        <div class="row">
+            {% for miembro in invitados_especiales %}
+            <div class="col s12 m3">
+                <div class="card card-avatar" style="height: 300px;">
+                    <div class="waves-effect waves-block waves-light">
+                        <img class="activator" src="{{ miembro.foto.url }}" style="margin-top: 5px;">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">{{ miembro.nombre }}<br/>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title"><i class="mdi-navigation-close right"></i></span>
+                        <p>{{ miembro.descripcion }}</p>
+                     </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endif %}
+
+
+{% if talleristas %}
+<div class="divider" id="talleristas"></div>
+
+</br>
+</br>
+</br>
+</br>
+</br>
+
+<div class="section scrollspy">
+    <div class="container">
+        <h4 class="header text_b">Talleristas</h4>
+        <div class="row">
+            {% for miembro in talleristas %}
+            <div class="col s12 m3">
+                <div class="card card-avatar" style="height: 300px;">
+                    <div class="waves-effect waves-block waves-light">
+                        <img class="activator" src="{{ miembro.foto.url }}" style="margin-top: 5px;">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">{{ miembro.nombre }}<br/>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title"><i class="mdi-navigation-close right"></i></span>
+                        <p>{{ miembro.descripcion }}</p>
+                     </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endif %}
+
 
 {% if evento.arte %}
 <div class="divider" id="arte"></div>
