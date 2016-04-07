@@ -12,19 +12,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AddField(
-            model_name='evento',
-            name='texto_introductorio_invitados_especiales',
-            field=models.TextField(blank=True, null=True),
-        ),
-        migrations.AddField(
-            model_name='evento',
-            name='texto_introductorio_jurado',
-            field=models.TextField(blank=True, null=True),
-        ),
-        migrations.AddField(
-            model_name='evento',
-            name='texto_introductorio_talleristas',
-            field=models.TextField(blank=True, null=True),
-        ),
+        
     ]

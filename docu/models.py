@@ -82,6 +82,7 @@ class Taller(models.Model):
 	descripcion = models.CharField(max_length=2000)
 	nombre_tallerista = models.CharField(max_length=200)
 	fecha_y_hora = models.DateTimeField('Fecha y hora')
+	fecha_y_hora_final = models.DateTimeField('Fecha y hora final')
 	imagen = models.ImageField(upload_to='talleres', default='static/default.jpg')
 	costo = models.CharField(max_length=150)
 	link_inscripcion = models.CharField(max_length=2000)
@@ -100,6 +101,7 @@ class Conferencia(models.Model):
 	descripcion = models.CharField(max_length=2000)
 	nombre_conferencista = models.CharField(max_length=200)
 	fecha_y_hora = models.DateTimeField('Fecha y hora')
+	fecha_y_hora_final = models.DateTimeField('Fecha y hora final')
 	imagen = models.ImageField(upload_to='Conferencia', default='static/default.jpg')
 	costo = models.CharField(max_length=150)
 

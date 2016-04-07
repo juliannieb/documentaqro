@@ -47,6 +47,9 @@ class Migration(migrations.Migration):
                 ('color', models.CharField(max_length=7)),
                 ('fecha_inicio', models.DateTimeField(verbose_name='Fecha inicio')),
                 ('fecha_fin', models.DateTimeField(verbose_name='Fecha fin')),
+                ('texto_introductorio_jurado', models.TextField(null=True, blank=True)),
+                ('texto_introductorio_invitados_especiales', models.TextField(null=True, blank=True)),
+                ('texto_introductorio_talleristas', models.TextField(null=True, blank=True)),
             ],
         ),
         migrations.CreateModel(
