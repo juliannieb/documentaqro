@@ -47,7 +47,7 @@
                               <h5>{{ taller.nombre }}</h5>
                               <p><b>Tallerista:</b> {{ taller.nombre_tallerista }}</p>
                               <p>{{ taller.descripcion }}</p>
-                              <p><b>Hora:</b> {{ taller.fecha_y_hora|date:"H:i" }}</p>
+                              <p><b>Hora:</b> {{ taller.fecha_y_hora|date:"H:i" }} - {{ taller.fecha_y_hora_final|date:"H:i" }}</p>
                               <p><b>Lugar:</b> {{ taller.sede.nombre }}</p>
                               <p><b>Costo:</b> {{ taller.costo}}</p>
 
@@ -66,7 +66,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <p><b>Hora:</b> {{ taller.fecha_y_hora|date:"H:i" }}</p>
+                                        <p><b>Hora:</b> {{ taller.fecha_y_hora|date:"H:i" }} - {{ taller.fecha_y_hora_final|date:"H:i" }}</p>
                                         <p><b>Lugar:</b> {{ taller.sede.nombre }}</p>
                                         <p><b>Costo:</b> {{ taller.costo}}</p>
 

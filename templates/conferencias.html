@@ -47,7 +47,7 @@
                               <h5>{{ conferencia.nombre }}</h5>
                               <h5>{{ conferencia.nombre_conferencista }}</h5>
                               <p>{{ conferencia.descripcion }}</p>
-                              <p><b>Hora:</b> {{ conferencia.fecha_y_hora|date:"H:i" }}</p>
+                              <p><b>Hora:</b> {{ conferencia.fecha_y_hora|date:"H:i" }} - {{ conferencia.fecha_y_hora_final|date:"H:i" }}</p>
                               <p><b>Lugar:</b> {{ conferencia.sede.nombre }}</p>
                               <p><b>Costo:</b> {{ conferencia.costo}}</p>
 
@@ -67,7 +67,7 @@
                                     </div>
                                     <div class="row">
                                         <h5>{{ conferencia.nombre_conferencista }}</h5>
-                                        <p><b>Hora:</b> {{ conferencia.fecha_y_hora|date:"H:i" }}</p>
+                                        <p><b>Hora:</b> {{ conferencia.fecha_y_hora|date:"H:i" }} - {{ conferencia.fecha_y_hora_final|date:"H:i" }}</p>
                                         <p><b>Lugar:</b> {{ conferencia.sede.nombre }}</p>
                                         <p><b>Costo:</b> {{ conferencia.costo}}</p>
 
