@@ -120,6 +120,7 @@ class Pelicula(models.Model):
 	duracion = models.CharField(max_length=30)
 	director = models.CharField(max_length=1000)
 	year = models.IntegerField()
+	origen = models.CharField(max_length=100)
 	trailer = models.CharField(max_length=1000, blank=True, null=True)
 
 	def __str__(self):
