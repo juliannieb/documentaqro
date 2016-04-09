@@ -6,8 +6,12 @@
                     <a class="modal-trigger" href="#modal{{ pelicula.pk }}"><img class="activator" src="{{ pelicula.still.url }}" style="height: 165px"></a>
                 </div>
                 <div class="card-content">
-                    <p>{{ pelicula.nombre }}</p>
-                    <p>Origen: {{ pelicula.origen }}</p>
+                    <p style="font-size:16px;"><b>{{ pelicula.nombre }}</b></p>
+                    {% if origen_seleccion_oficial == "internacional" %}
+                      <p>País de origen: {{ pelicula.origen }}</p>
+                    {% else %}
+                      <p>Universidad: {{ pelicula.origen }}</p>
+                    {% endif %}
                     <a class="modal-trigger btn color_oficial" href="#modal{{ pelicula.pk }}" style="color:#BC426A;">Ver más</a>
                 </div>
             </div>
@@ -28,7 +32,11 @@
             <div class="row">
                 <div class="col s12 m6">
                   <p><b>Director: </b>{{ pelicula.director }}</p>
-                  <p><b>Origen: </b>{{ pelicula.origen }}</p>
+                  {% if origen_seleccion_oficial == "internacional" %}
+                    <p>País de origen: {{ pelicula.origen }}</p>
+                  {% else %}
+                    <p>Universidad: {{ pelicula.origen }}</p>
+                  {% endif %}
                   <p><b>Año: </b>{{ pelicula.year }}</p>
                   <p><b>Duración: </b>{{ pelicula.duracion }}</p>
                 </div>
