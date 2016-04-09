@@ -19,7 +19,7 @@
 		            <div class="col s12 m3">
 		                <div class="card" style="height: 300px;background:{{ evento.color }}">
 		                    <div class="waves-effect waves-block waves-light">
-		                        <img class="activator" src="{{ evento.logo.url }}" style="margin-top: 5px;">
+		                        <img class="activator responsive-img" src="{{ evento.logo.url }}" style="margin-top: 5px;">
 		                    </div>
 		                    <div class="card-content">
 		                        <a href="{% url 'evento_anterior' evento.pk %}"><span class="card-title activator" style="color:{{ evento.color_texto_nav }};">{{ evento.nombre }}</a><br/>
