@@ -1,0 +1,13 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:300);
+
+* {
+	font-family: 'Raleway', sans-serif;
+}
+
+nav#nav_principal ul li a{
+  color: black;
+}
+
+.btn_programa {
+	margin: 3px;
+}

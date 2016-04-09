@@ -1,5 +1,4 @@
 media/
-static/
 docu/__pycache__
 documentaqro/__pycache__
 *.pyc
