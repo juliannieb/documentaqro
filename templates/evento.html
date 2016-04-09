@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block head %}
+<link href="{% static 'css/evento.css' %}" rel="stylesheet">
+{% endblock head %}
+
 {% block content %}
 
 {% if evento %}

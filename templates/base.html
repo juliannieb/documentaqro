@@ -19,6 +19,8 @@
     <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
     <link href="{% static 'css/general.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"> 
+    {% block head %}
+    {% endblock head %}
 </head>
 <body id="top" class="scrollspy">
 
@@ -76,7 +78,7 @@
 <!--Footer-->
 <footer id="contact" class="page-footer transparent scrollspy" >
 
-    <a href="{% url 'patrocinadores' %}"><img src="{% static "img/patrocinadores.jpg" %}" class="responsive-img center" style="width:100%;"></a>
+    <a href="{% url 'patrocinadores' %}"><img src="{% static "img/patrocinadores2.png" %}" class="responsive-img center" style="width:100%;"></a>
     
 </footer>
 
