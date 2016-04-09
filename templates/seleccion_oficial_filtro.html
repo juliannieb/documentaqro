@@ -1,14 +1,14 @@
 <div class="row">
     {% for pelicula in seleccion_oficial %}
         <div class="col s12 m6 l4">
-            <div class="card" style="height: 400px">
+            <div class="card" style="height: 350px">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="{{ pelicula.still.url }}" style="height: 150px">
+                    <img class="activator" src="{{ pelicula.still.url }}" style="height: 200px">
                 </div>
                 <div class="card-content">
                     <p>{{ pelicula.nombre }}</p>
                     <p>Origen: {{ pelicula.origen }}</p>
-                    <p><a class="modal-trigger waves-effect waves-light" href="#modal{{ pelicula.pk }}">Ver más</a></p>
+                    <a class="modal-trigger btn color_oficial" href="#modal{{ pelicula.pk }}" style="color:#BC426A;">Ver más</a>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
             
           </div>
           <div class="modal-footer">
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
+            <a href="" class=" modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
           </div>
         </div>
     {% endfor %}
