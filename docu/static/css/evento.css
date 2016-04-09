@@ -2,3 +2,9 @@
 	height: 330px;
 	background: #eee;
 }
+
+.card-avatar img {
+   border-width: 4px;
+   border-style: outset;
+   border-color: #BC426A;
+}
