@@ -32,11 +32,57 @@
 	        </div>
     	</div> -->
     	<div id="div_proyecciones">
-          {% for fecha in days %}
-		    	 {% for dia, proyecciones_list in proyecciones.items %}
-             {% if fecha == dia %}
+          {% for fecha in dates %}
+           {% for dia, proyecciones_list in proyecciones.items %}
+             {% if fecha|date:"Y-m-d" == dia %}
               <div class="row">
-              <h4>{{ dia }}</h4>
+              <h4>
+              {% if fecha|date:"w" == "0" %}
+                Domingo
+              {% elif fecha|date:"w" == "1" %}
+                Lunes
+              {% elif fecha|date:"w" == "2" %}
+                Martes
+              {% elif fecha|date:"w" == "3" %}
+                Miércoles
+              {% elif fecha|date:"w" == "4" %}
+                Jueves
+              {% elif fecha|date:"w" == "5" %}
+                Viernes
+              {% elif fecha|date:"w" == "6" %}
+                Sábado
+              {% endif %}
+
+              {{ fecha|date:"d" }}
+
+              de
+
+              {% if fecha|date:"n" == "1" %}
+                Enero
+              {% elif fecha|date:"n" == "2" %}
+                Febrero
+              {% elif fecha|date:"n" == "3" %}
+                Marzo
+              {% elif fecha|date:"n" == "4" %}
+                Abril
+              {% elif fecha|date:"n" == "5" %}
+                Mayo
+              {% elif fecha|date:"n" == "6" %}
+                Junio
+              {% elif fecha|date:"n" == "7" %}
+                Julio
+              {% elif fecha|date:"n" == "8" %}
+                Agosto
+              {% elif fecha|date:"n" == "9" %}
+                Septiembre
+              {% elif fecha|date:"n" == "10" %}
+                Octubre
+              {% elif fecha|date:"n" == "11" %}
+                Noviembre
+              {% elif fecha|date:"n" == "12" %}
+                Diciembre
+              {% endif %}
+              </h4>
                   {% for proyeccion in proyecciones_list %}
   		            <div class="col s12 m6 l4">
   		                <div class="card">

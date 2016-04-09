@@ -287,14 +287,17 @@ def proyecciones(request, evento_id):
 	proyecciones_query = Proyeccion.objects.filter(evento=evento.pk).order_by('fecha_y_hora')
 	proyecciones = {}
 	days = []
+	dates = []
 	for proyeccion in proyecciones_query:
-		fecha = proyeccion.fecha_y_hora.strftime('%Y-%m-%d')
-		if fecha in days:
-			proyecciones[fecha].append(proyeccion)
+		fecha = proyeccion.fecha_y_hora
+		fecha_string = proyeccion.fecha_y_hora.strftime('%Y-%m-%d')
+		if fecha_string in days:
+			proyecciones[fecha_string].append(proyeccion)
 		else:
-			proyecciones[fecha] = []
-			proyecciones[fecha].append(proyeccion)
-			days.append(fecha)
+			proyecciones[fecha_string] = []
+			proyecciones[fecha_string].append(proyeccion)
+			days.append(fecha_string)
+			dates.append(fecha)
 	days.sort()
 	paginator = Paginator(days, 24)
 	page = request.GET.get('page')
@@ -313,6 +316,7 @@ def proyecciones(request, evento_id):
 	context['evento'] = evento
 	context['proyecciones'] = proyecciones
 	context['days'] = days
+	context['dates'] = dates
 	return render(request, 'proyecciones.html', context)
 
 def talleres(request, evento_id):
@@ -324,14 +328,14 @@ def talleres(request, evento_id):
 	talleres = {}
 	days = []
 	dates = []
-	for proyeccion in talleres_query:
-		fecha = proyeccion.fecha_y_hora
+	for taller in talleres_query:
+		fecha = taller.fecha_y_hora
 		fecha_string = fecha.strftime('%Y-%m-%d')
 		if fecha_string in days:
-			talleres[fecha_string].append(proyeccion)
+			talleres[fecha_string].append(taller)
 		else:
 			talleres[fecha_string] = []
-			talleres[fecha_string].append(proyeccion)
+			talleres[fecha_string].append(taller)
 			days.append(fecha_string)
 			dates.append(fecha)
 	days.sort()
@@ -363,14 +367,17 @@ def conferencias(request, evento_id):
 	conferencias_query = Conferencia.objects.filter(evento=evento.pk).order_by('fecha_y_hora')
 	conferencias = {}
 	days = []
-	for proyeccion in conferencias_query:
-		fecha = proyeccion.fecha_y_hora.strftime('%Y-%m-%d')
-		if fecha in days:
-			conferencias[fecha].append(proyeccion)
+	dates = []
+	for conferencia in conferencias_query:
+		fecha = conferencia.fecha_y_hora
+		fecha_string = conferencia.fecha_y_hora.strftime('%Y-%m-%d')
+		if fecha_string in days:
+			conferencias[fecha_string].append(conferencia)
 		else:
-			conferencias[fecha] = []
-			conferencias[fecha].append(proyeccion)
-			days.append(fecha)
+			conferencias[fecha_string] = []
+			conferencias[fecha_string].append(conferencia)
+			days.append(fecha_string)
+			dates.append(fecha)
 	days.sort()
 	paginator = Paginator(days, 24)
 	page = request.GET.get('page')
@@ -389,4 +396,5 @@ def conferencias(request, evento_id):
 	context['evento'] = evento
 	context['conferencias'] = conferencias
 	context['days'] = days
+	context['dates'] = dates
 	return render(request, 'conferencias.html', context)
