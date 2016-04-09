@@ -8,3 +8,11 @@
    border-style: outset;
    border-color: #BC426A;
 }
+
+.nombre_miembro {
+	font-size: 20px;
+}
+
+.titulo_participacion {
+	font-size: 16px;
+}
