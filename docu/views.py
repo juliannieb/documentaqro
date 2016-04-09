@@ -323,14 +323,17 @@ def talleres(request, evento_id):
 	talleres_query = Taller.objects.filter(evento=evento.pk).order_by('fecha_y_hora')
 	talleres = {}
 	days = []
+	dates = []
 	for proyeccion in talleres_query:
-		fecha = proyeccion.fecha_y_hora.strftime('%Y-%m-%d')
-		if fecha in days:
-			talleres[fecha].append(proyeccion)
+		fecha = proyeccion.fecha_y_hora
+		fecha_string = fecha.strftime('%Y-%m-%d')
+		if fecha_string in days:
+			talleres[fecha_string].append(proyeccion)
 		else:
-			talleres[fecha] = []
-			talleres[fecha].append(proyeccion)
-			days.append(fecha)
+			talleres[fecha_string] = []
+			talleres[fecha_string].append(proyeccion)
+			days.append(fecha_string)
+			dates.append(fecha)
 	days.sort()
 	paginator = Paginator(days, 24)
 	page = request.GET.get('page')
@@ -349,6 +352,7 @@ def talleres(request, evento_id):
 	context['evento'] = evento
 	context['talleres'] = talleres
 	context['days'] = days
+	context['dates'] = dates
 	return render(request, 'talleres.html', context)
 
 def conferencias(request, evento_id):
