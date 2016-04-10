@@ -148,6 +148,50 @@
     </div>
 </div>
 
+
+{% if evento.texto_introductorio_premios %}
+
+<div class="divider" id="premios"></div>
+
+</br>
+</br>
+</br>
+</br>
+</br>
+
+<div class="section scrollspy">
+    <div class="container">
+        <h4 class="header text_b">Premios</h4>
+        <div class="row">
+            <div class="col s12">
+                <!--<h4 class="center header text_h2 flow-text">{{ evento.texto_introductorio_premios }}</h4>-->
+                <h4 class="center header text_h2 flow-text">
+                    En esta ocasión, el Festival <span style="color:#BC426A;">#DOQU</span> tiene tres premios posibles para otorgar a los cortometrajes que forman parte de la Selección Oficial 2016:
+                    <br>
+                    <br>
+                    -<b>Premio DOQU:</b> para el cortometraje nacional que determine el jurado.
+                    <br>
+                    -<b>Premio del Público Nacional:</b> determinado por la audiencia asistente a las funciones donde se presenten los cortos quienes evaluarán los cortos presentados.
+                    <br>
+                    -<b>Premio del Público Internacional:</b> la Selección Oficial Internacional únicamente compite por el premio que otorgará la audiencia asistente a sus funciones mediante una evaluación de los cortos presentados.
+                    <br>
+                    <br>
+                    •Pase directo a la Selección Oficial en Competencia Universitaria del Festival de Documental Mexicano Zanate de Colima, con gastos de traslado y hospedaje pagados para los días del festival para que disfruten de las actividades y puedan presentar su película allá.*
+                    <br>
+                    •Pase a la pre-selección de la sección estudiantil del Festival de Cine de Viña del Mar en Chile. En caso de sí resultar finalmente Seleccionados Oficiales, el premio incluirá gastos de hospedaje por la duración del festival.*
+                    <br>
+                    •Premio Sorpresa otorgado por AMTEC edu, que ayudará al ganador a continuar produciendo documentales de calidad.
+                    <br>
+                    <br>
+                    *Gastos de viaje únicamente para una persona.
+                </h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+
 {% if jurado %}
 <div class="divider" id="jurado"></div>
 
