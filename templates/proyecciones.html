@@ -97,8 +97,8 @@
   		                        <img class="activator" src="{{ proyeccion.sede.imagen.url }}" style="height: 150px">
   		                    </div>
   		                    <div class="card-content">
-                              <h5>{{ proyeccion.nombre }}</h5>
-                              <p>{{ proyeccion.descripcion }}</p>
+                              <span class="card-title activator">{{ proyeccion.nombre }}</span><br/>
+                              <!--<p>{{ proyeccion.descripcion }}</p>-->
                               <p><b>Hora:</b> {{ proyeccion.fecha_y_hora|date:"H:i" }}</p>
                               <p><b>Lugar:</b> {{ proyeccion.sede.nombre }}</p>
                               <p><b>Películas:</b></p>
@@ -150,6 +150,10 @@
                               {% endfor %}
   		                        <!--<p><a class="modal-trigger waves-effect waves-light btn white-text" href="">Ver más</a></p>-->
   		                    </div>
+                          <div class="card-reveal">
+                              <span class="card-title"><i class="mdi-navigation-close right"></i></span>
+                              <p>{{ proyeccion.descripcion }}</p>
+                          </div>
   		                </div>
   		            </div>
                   {% endfor %}
