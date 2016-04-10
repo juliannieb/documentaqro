@@ -2,17 +2,24 @@
 {% load static %}
 
 {% block content %}
-<div class="container">
-      <div class="row">
-        <div class="s12 center-align center circle valign center-block">
-          <div class="center-align center circle valign center-block" style="background:white;padding:5px;display: inline-block;">
-            <a href="{% url 'evento_anterior' evento.pk %}"><img class="center-align center circle responsive-img valign center-block" src="{{ evento.logo.url }}"></a>
-          </div>
+
+<div class="navbar-fixed hide-on-med-and-down" id="inicio">
+    <nav id="nav_f" class="" role="navigation" style="background:{{ evento.color }}">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="{% url 'evento_anterior' evento.pk %}" class="brand-logo center">{{ evento.nombre }}</a>
+            </div>
         </div>
-        <div class="s12 center-align center valign center-block">
-          <!--<h3 class="black-text">{{ evento.nombre }}</h3>-->
-        </div>
-      </div>
+    </nav>
+</div>
+
+<!--Parallax-->
+<div class="parallax-container valign-wrapper">
+    {% if evento.header_seleccion_oficial %}
+      <div class="parallax"><img src="{{ evento.header_seleccion_oficial.url }}"></div>
+    {% else %}
+      <div class="parallax"><img src="{{ evento.logo.url }}"></div>
+    {% endif %}
 </div>
 
 <div class="section scrollspy">

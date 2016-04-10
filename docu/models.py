@@ -52,6 +52,7 @@ class Evento(models.Model):
 	texto_introductorio_seleccion_oficial_internacional = models.TextField(null=True, blank=True)
 	
 	header_seleccion_oficial = models.ImageField(upload_to='eventos', null=True, blank=True)
+	header_proyecciones = models.ImageField(upload_to='eventos', null=True, blank=True)
 	header_actividades = models.ImageField(upload_to='eventos', null=True, blank=True)
 
 	btn_seleccion_oficial = models.ImageField(upload_to='eventos', null=True, blank=True)
