@@ -14,11 +14,11 @@
 </div>
 
 <!--Parallax-->
-<div class="parallax-container valign-wrapper">
+<div>
     {% if evento.header_seleccion_oficial %}
-      <div class="parallax"><img src="{{ evento.header_seleccion_oficial.url }}"></div>
+      <img class="header responsive-img" src="{{ evento.header_seleccion_oficial.url }}">
     {% else %}
-      <div class="parallax"><img src="{{ evento.logo.url }}"></div>
+      <img class="header responsive-img" src="{{ evento.logo.url }}">
     {% endif %}
 </div>
 
