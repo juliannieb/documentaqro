@@ -47,4 +47,9 @@ class Migration(migrations.Migration):
             name='texto_introductorio_seleccion_oficial_nacional',
             field=models.TextField(blank=True, null=True),
         ),
+        migrations.AddField(
+            model_name='evento',
+            name='link_acreditaciones',
+            field=models.CharField(max_length=2000, null=True, blank=True),
+        ),
     ]
