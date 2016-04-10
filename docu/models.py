@@ -44,15 +44,27 @@ class Evento(models.Model):
 	descripcion = models.TextField(default="")
 	imagen_principal = models.ImageField(upload_to='eventos', default='static/default.jpg')
 	logo = models.ImageField(upload_to='eventos', default='static/default.jpg')
+	
 	texto_introductorio_jurado = models.TextField(null=True, blank=True)
 	texto_introductorio_invitados_especiales = models.TextField(null=True, blank=True)
 	texto_introductorio_talleristas = models.TextField(null=True, blank=True)
+	texto_introductorio_seleccion_oficial_nacional = models.TextField(null=True, blank=True)
+	texto_introductorio_seleccion_oficial_internacional = models.TextField(null=True, blank=True)
+	
+	header_seleccion_oficial = models.ImageField(upload_to='eventos', null=True, blank=True)
+	header_actividades = models.ImageField(upload_to='eventos', null=True, blank=True)
+
+	btn_seleccion_oficial = models.ImageField(upload_to='eventos', null=True, blank=True)
+	btn_proyecciones = models.ImageField(upload_to='eventos', null=True, blank=True)
+	btn_actividades = models.ImageField(upload_to='eventos', null=True, blank=True)
+	
 	patrocinadores = models.ImageField(upload_to='eventos', null=True, blank=True)
 	arte = models.ImageField(upload_to='eventos', null=True, blank=True)
 	color = models.CharField(max_length=7)
 	color_texto_nav = models.CharField(max_length=7)
 	fecha_inicio = models.DateTimeField('Fecha inicio')
 	fecha_fin = models.DateTimeField('Fecha fin')
+	link_acreditaciones = models.CharField(max_length=2000, null=True, blank=True)
 
 	def __str__(self):
 		return self.nombre

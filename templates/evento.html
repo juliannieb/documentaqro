@@ -78,24 +78,56 @@
         <h4 class="header text_b">Programa</h4>
         <div class="row">
         	{% if seleccion_oficial %}
-                <div class="col s12 m6 l3" style="padding:3px">
-                    <a class="waves-effect waves-light btn col s12" href="{% url 'seleccion_oficial' evento.pk %}" style="background:{{ evento.color }}; color:{{ evento.color_texto_nav}}">Selección oficial</a>
-                </div>
+                {% if evento.btn_seleccion_oficial %}
+                    <div class="col s12 m6 l3" style="padding:3px">
+                        <a class="waves-effect waves-light col s12" href="{% url 'seleccion_oficial' evento.pk %}">
+                            <img src="{{ evento.btn_seleccion_oficial.url }}" class="responsive-img">
+                        </a>
+                    </div>
+                {% else %}
+                    <div class="col s12 m6 l3" style="padding:3px">
+                        <a class="waves-effect waves-light btn col s12" href="{% url 'seleccion_oficial' evento.pk %}" style="background:{{ evento.color }}; color:{{ evento.color_texto_nav}}">Selección oficial</a>
+                    </div>
+                {% endif %}
             {% endif %}
             {% if proyecciones %}
-                <div class="col s12 m6 l3" style="padding:3px">
-                    <a class="waves-effect waves-light btn col s12" href="{% url 'proyecciones' evento.pk %}" style="background:{{ evento.color }}; color:{{ evento.color_texto_nav}}">Proyecciones</a>
-                </div>
+                {% if evento.btn_proyecciones %}
+                    <div class="col s12 m6 l3" style="padding:3px">
+                        <a class="waves-effect waves-light col s12" href="{% url 'proyecciones' evento.pk %}">
+                            <img src="{{ evento.btn_proyecciones.url }}" class="responsive-img">
+                        </a>
+                    </div>
+                {% else %}
+                    <div class="col s12 m6 l3" style="padding:3px">
+                        <a class="waves-effect waves-light btn col s12" href="{% url 'proyecciones' evento.pk %}" style="background:{{ evento.color }}; color:{{ evento.color_texto_nav}}">Proyecciones</a>
+                    </div>
+                {% endif %}
             {% endif %}
             {% if conferencias %}
-                <div class="col s12 m6 l3" style="padding:3px">
-                    <a class="waves-effect waves-light btn col s12" href="{% url 'conferencias' evento.pk %}" style="background:{{ evento.color }}; color:{{ evento.color_texto_nav}}">Conferencias</a>
-                </div>
+                {% if evento.btn_actividades %}
+                    <div class="col s12 m6 l3" style="padding:3px">
+                        <a class="waves-effect waves-light col s12" href="{% url 'conferencias' evento.pk %}">
+                            <img src="{{ evento.btn_actividades.url }}" class="responsive-img">
+                        </a>
+                    </div>
+                {% else %}
+                    <div class="col s12 m6 l3" style="padding:3px">
+                        <a class="waves-effect waves-light btn col s12" href="{% url 'conferencias' evento.pk %}" style="background:{{ evento.color }}; color:{{ evento.color_texto_nav}}">Conferencias</a>
+                    </div>
+                {% endif %}
             {% endif %}
             {% if talleres %}
-                <div class="col s12 m6 l3" style="padding:3px">
-                    <a class="waves-effect waves-light btn col s12" href="{% url 'talleres' evento.pk %}" style="background:{{ evento.color }}; color:{{ evento.color_texto_nav}}">Talleres</a>
-                </div>
+                {% if evento.btn_actividades %}
+                    <div class="col s12 m6 l3" style="padding:3px">
+                        <a class="waves-effect waves-light col s12" href="{% url 'talleres' evento.pk %}">
+                            <img src="{{ evento.btn_actividades.url }}" class="responsive-img">
+                        </a>
+                    </div>
+                {% else %}
+                    <div class="col s12 m6 l3" style="padding:3px">
+                        <a class="waves-effect waves-light btn col s12" href="{% url 'talleres' evento.pk %}" style="background:{{ evento.color }}; color:{{ evento.color_texto_nav}}">Talleres</a>
+                    </div>
+                {% endif %}
             {% endif %}
         </div>
     </div>

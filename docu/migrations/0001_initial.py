@@ -50,6 +50,7 @@ class Migration(migrations.Migration):
                 ('texto_introductorio_jurado', models.TextField(null=True, blank=True)),
                 ('texto_introductorio_invitados_especiales', models.TextField(null=True, blank=True)),
                 ('texto_introductorio_talleristas', models.TextField(null=True, blank=True)),
+                ('link_acreditaciones', models.CharField(max_length=2000, null=True, blank=True)),
             ],
         ),
         migrations.CreateModel(
