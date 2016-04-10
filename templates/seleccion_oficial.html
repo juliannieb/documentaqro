@@ -27,7 +27,7 @@
     	<h4 class="header text_b">Selección oficial</h4>
     	<div class="row">
         <div class="col s12">
-            <h4 class="center header text_h2 flow-text">{{ evento.texto_introductorio_seleccion_oficial }}</h4>
+            <h4 id="texto_introductorio" class="center header text_h2 flow-text">{{ evento.texto_introductorio_seleccion_oficial_nacional }}</h4>
         </div>
     		<div class="input-field col s12" style="float:right;">
     		  <div class="col s12 m6 l6" style="padding:3px">
@@ -37,8 +37,7 @@
     		  	<a class="waves-effect waves-light btn col s12" id="btn_seleccion_internacional" style="background:{{ evento.color }}">Internacional</a>
     		  </div>
 	          
-	          
-	        </div>
+	     </div>
     	</div>
     	<div id="div_peliculas">
     		<div class="row">
@@ -135,6 +134,7 @@
                 context: document.body
             }).done(function(data) {
                 $("#div_peliculas").html(data);
+                $("#texto_introductorio").text("{{ evento.texto_introductorio_seleccion_oficial_nacional }}");
             });
         });
         $("#btn_seleccion_internacional").click(function() {
@@ -143,6 +143,7 @@
                 context: document.body
             }).done(function(data) {
                 $("#div_peliculas").html(data);
+                $("#texto_introductorio").text("{{ evento.texto_introductorio_seleccion_oficial_internacional }}");
             });
         });
     });
