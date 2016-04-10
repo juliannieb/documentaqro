@@ -56,6 +56,11 @@
             <div class="col s12">
                 <h4 class="center header text_h2 flow-text">{{ evento.descripcion }}</h4>
             </div>
+            {% if evento.link_acreditaciones %}
+                <div class="col s12 center">
+                    <a class="waves-effect waves-light btn center-align" href="{{ evento.link_acreditaciones }}">Acreditaciones</a>
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>
