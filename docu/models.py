@@ -79,7 +79,7 @@ class Evento(models.Model):
 
 class Proyeccion(models.Model):
 	evento = models.ForeignKey('Evento')
-	sede = models.ForeignKey('Sede')
+	sede = models.ForeignKey('Sede', null=True, blank=True)
 
 	nombre = models.CharField(max_length=100)
 	fecha_y_hora = models.DateTimeField('Fecha y hora')

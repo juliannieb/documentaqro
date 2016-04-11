@@ -100,7 +100,11 @@
                               <h5 class="activator">{{ proyeccion.nombre }}</h5>
                               <!--<p>{{ proyeccion.descripcion }}</p>-->
                               <p><b>Hora:</b> {{ proyeccion.fecha_y_hora|date:"H:i" }}</p>
-                              <p><b>Lugar:</b> {{ proyeccion.sede.nombre }}</p>
+                              {% if proyeccion.sede %}
+                                <p><b>Lugar:</b> {{ proyeccion.sede.nombre }}</p>
+                              {% else %}
+                                <p><b>Lugar:</b> Por confirmar</p>
+                              {% endif %}
                               <p><b>Películas:</b></p>
                               {% for pelicula in proyeccion.pelicula_set.all %}
                                 {% if forloop.last %}
