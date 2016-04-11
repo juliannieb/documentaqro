@@ -321,7 +321,7 @@
 
 <div class="section scrollspy">
     <div class="container">
-        <h4 class="header text_b">Sedes</h4>
+        <h4 class="header text_b">Sedes oficiales</h4>
         <div class="row">
             <div class="col s12">
                 <h4 class="center header text_h2 flow-text">{{ evento.texto_introductorio_sedes }}</h4>
@@ -329,6 +329,22 @@
             <ul>
             {% for sede in sedes %}
                 <li><a href="{% url 'sede' sede.pk %}"><h4 class="center header text_h2 flow-text">{{ sede.nombre }}</h4></a></li>
+            {% endfor %}
+            </ul>
+        </div>
+        <h4 class="header text_b">Hoteles oficiales</h4>
+        <div class="row">
+            <ul>
+            {% for hotel in hoteles %}
+                <li><a href="{% url 'sede' hotel.pk %}"><h4 class="center header text_h2 flow-text">{{ hotel.nombre }}</h4></a></li>
+            {% endfor %}
+            </ul>
+        </div>
+        <h4 class="header text_b">Otros espacios</h4>
+        <div class="row">
+            <ul>
+            {% for lugar in otros_espacios %}
+                <li><a href="{% url 'sede' lugar.pk %}"><h4 class="center header text_h2 flow-text">{{ lugar.nombre }}</h4></a></li>
             {% endfor %}
             </ul>
         </div>

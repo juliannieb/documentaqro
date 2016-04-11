@@ -26,6 +26,8 @@ class Festival(models.Model):
 		return self.nombre
 
 class Sede(models.Model):
+	type_choices = ((0, 'Sede Oficial'), (1, 'Hoteles'),(2, 'Otros'),)
+	tipo = models.IntegerField(choices=type_choices, default=0)
 	nombre = models.CharField(max_length=100)
 	direccion = models.TextField()
 	imagen = models.ImageField(upload_to='sedes', default='static/default.jpg')
