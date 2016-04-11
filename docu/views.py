@@ -259,6 +259,9 @@ def evento_anterior(request, evento_id):
 	jurado = Jurado.objects.filter(evento=evento.pk)
 	invitados_especiales = InvitadoEspecial.objects.filter(evento=evento.pk)
 	talleristas = Tallerista.objects.filter(evento=evento.pk)
+	sedes = Sede.objects.filter(tipo=0)
+	hoteles = Sede.objects.filter(tipo=1)
+	otros_espacios = Sede.objects.filter(tipo=2)
 	context['evento'] = evento
 	context['seleccion_oficial'] = seleccion_oficial
 	context['proyecciones'] = proyecciones
@@ -267,6 +270,9 @@ def evento_anterior(request, evento_id):
 	context['jurado'] = jurado
 	context['invitados_especiales'] = invitados_especiales
 	context['talleristas'] = talleristas
+	context['sedes'] = sedes
+	context['hoteles'] = hoteles
+	context['otros_espacios'] = otros_espacios
 	festivales = Festival.objects.all()
 	redes_sociales = get_redes_sociales()
 	context['festivales'] = festivales
