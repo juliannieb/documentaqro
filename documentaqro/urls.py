@@ -37,4 +37,5 @@ urlpatterns = [
     url(r'^evento/(?P<evento_id>[0-9]+)/proyecciones/', views.proyecciones, name='proyecciones'),
     url(r'^evento/(?P<evento_id>[0-9]+)/talleres/', views.talleres, name='talleres'),
     url(r'^evento/(?P<evento_id>[0-9]+)/conferencias/', views.conferencias, name='conferencias'),
+    url(r'^sede/(?P<sede_id>[0-9]+)/', views.sede, name='sede'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

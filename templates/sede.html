@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="section scrollspy">
+    <div class="container">
+        <div class="row">
+            {{ sede.latitud }} {{ sede.longitud }}
+            <h4 class="header text_b">{{ sede.nombre }}</h4>
+            <div class="col s4">
+                <img src="{{ sede.imagen.url }}" class="responsive-img">
+            </div>
+            <div  class="col s8">
+                <h4 class="center header text_h2 flow-text">{{ sede.direccion }}</h4>
+            </div>
+            <div class="col s12">
+                <div id="map" style="height:400px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  function initMap() {
+    var myLatLng = {lat: {{ sede.latitud }}, lng: {{ sede.longitud }} };
+    var mapDiv = document.getElementById('map');
+    var map = new google.maps.Map(mapDiv, {
+      center: myLatLng,
+      zoom: 8
+    });
+    var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: '{{ sede.nombre }}'
+  });
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+    async defer></script>
+
+{% endblock content %}

@@ -27,6 +27,7 @@ class Festival(models.Model):
 
 class Sede(models.Model):
 	nombre = models.CharField(max_length=100)
+	direccion = models.TextField()
 	imagen = models.ImageField(upload_to='sedes', default='static/default.jpg')
 	latitud = models.FloatField()
 	longitud = models.FloatField()
@@ -50,6 +51,7 @@ class Evento(models.Model):
 	texto_introductorio_talleristas = models.TextField(null=True, blank=True)
 	texto_introductorio_seleccion_oficial_nacional = models.TextField(null=True, blank=True)
 	texto_introductorio_seleccion_oficial_internacional = models.TextField(null=True, blank=True)
+	texto_introductorio_sedes = models.TextField(null=True, blank=True)
 	
 	header_seleccion_oficial = models.ImageField(upload_to='eventos', null=True, blank=True)
 	header_proyecciones = models.ImageField(upload_to='eventos', null=True, blank=True)

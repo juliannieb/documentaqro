@@ -310,6 +310,34 @@
 {% endif %}
 
 
+{% if evento.texto_introductorio_sedes %}
+<div class="divider" id="sedes"></div>
+
+</br>
+</br>
+</br>
+</br>
+</br>
+
+<div class="section scrollspy">
+    <div class="container">
+        <h4 class="header text_b">Sedes</h4>
+        <div class="row">
+            <div class="col s12">
+                <h4 class="center header text_h2 flow-text">{{ evento.texto_introductorio_sedes }}</h4>
+            </div>
+            <ul>
+            {% for sede in sedes %}
+                <li><a href="{% url 'sede' sede.pk %}"><h4 class="center header text_h2 flow-text">{{ sede.nombre }}</h4></a></li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+
+
 {% if evento.arte %}
 <div class="divider" id="arte"></div>
 

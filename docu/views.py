@@ -159,6 +159,7 @@ def evento(request, festival_id):
 		jurado = Jurado.objects.filter(evento=evento.pk)
 		invitados_especiales = InvitadoEspecial.objects.filter(evento=evento.pk)
 		talleristas = Tallerista.objects.filter(evento=evento.pk)
+		sedes = Sede.objects.all()
 		context['evento'] = evento
 		context['seleccion_oficial'] = seleccion_oficial
 		context['proyecciones'] = proyecciones
@@ -167,6 +168,7 @@ def evento(request, festival_id):
 		context['jurado'] = jurado
 		context['invitados_especiales'] = invitados_especiales
 		context['talleristas'] = talleristas
+		context['sedes'] = sedes
 	festivales = Festival.objects.all()
 	redes_sociales = get_redes_sociales()
 	context['festivales'] = festivales
@@ -398,3 +400,15 @@ def conferencias(request, evento_id):
 	context['days'] = days
 	context['dates'] = dates
 	return render(request, 'conferencias.html', context)
+
+def sede(request, sede_id):
+	"""Patrocinadores generales de DocumentaQro
+	"""
+	context = {}
+	festivales = Festival.objects.all()
+	redes_sociales = get_redes_sociales()
+	sede = get_object_or_404(Sede, pk=sede_id)
+	context['festivales'] = festivales
+	context['redes_sociales'] = redes_sociales
+	context['sede'] = sede
+	return render(request, 'sede.html', context)
