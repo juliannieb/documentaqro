@@ -296,7 +296,7 @@ def proyecciones(request, evento_id):
 	"""
 	context = {}
 	evento = get_object_or_404(Evento, pk=evento_id)
-	proyecciones_query = Proyeccion.objects.filter(evento=evento.pk).order_by('fecha_y_hora')
+	proyecciones_query = Proyeccion.objects.filter(es_seleccion_oficial=False, evento=evento.pk).order_by('fecha_y_hora')
 	proyecciones = {}
 	days = []
 	dates = []

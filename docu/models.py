@@ -86,6 +86,7 @@ class Proyeccion(models.Model):
 	nombre = models.CharField(max_length=100)
 	fecha_y_hora = models.DateTimeField('Fecha y hora')
 	descripcion = models.CharField(max_length=500)
+	es_seleccion_oficial = models.BooleanField(default=False)
 
 	def __str__(self):
 		return self.nombre + " - " + self.fecha_y_hora.strftime('%d-%B-%Y %H:%M')

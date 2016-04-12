@@ -102,6 +102,56 @@
                   <p><b>Lugar:</b> Por confirmar</p>
                 {% endif %}
 
+                <p>
+                {% if proyeccion.fecha_y_hora|date:"w" == "0" %}
+                  Domingo
+                {% elif proyeccion.fecha_y_hora|date:"w" == "1" %}
+                  Lunes
+                {% elif proyeccion.fecha_y_hora|date:"w" == "2" %}
+                  Martes
+                {% elif proyeccion.fecha_y_hora|date:"w" == "3" %}
+                  Miércoles
+                {% elif proyeccion.fecha_y_hora|date:"w" == "4" %}
+                  Jueves
+                {% elif proyeccion.fecha_y_hora|date:"w" == "5" %}
+                  Viernes
+                {% elif proyeccion.fecha_y_hora|date:"w" == "6" %}
+                  Sábado
+                {% endif %}
+
+                {{ proyeccion.fecha_y_hora|date:"d" }}
+
+                de
+
+                {% if proyeccion.fecha_y_hora|date:"n" == "1" %}
+                  Enero
+                {% elif proyeccion.fecha_y_hora|date:"n" == "2" %}
+                  Febrero
+                {% elif proyeccion.fecha_y_hora|date:"n" == "3" %}
+                  Marzo
+                {% elif proyeccion.fecha_y_hora|date:"n" == "4" %}
+                  Abril
+                {% elif proyeccion.fecha_y_hora|date:"n" == "5" %}
+                  Mayo
+                {% elif proyeccion.fecha_y_hora|date:"n" == "6" %}
+                  Junio
+                {% elif proyeccion.fecha_y_hora|date:"n" == "7" %}
+                  Julio
+                {% elif proyeccion.fecha_y_hora|date:"n" == "8" %}
+                  Agosto
+                {% elif proyeccion.fecha_y_hora|date:"n" == "9" %}
+                  Septiembre
+                {% elif proyeccion.fecha_y_hora|date:"n" == "10" %}
+                  Octubre
+                {% elif proyeccion.fecha_y_hora|date:"n" == "11" %}
+                  Noviembre
+                {% elif proyeccion.fecha_y_hora|date:"n" == "12" %}
+                  Diciembre
+                {% endif %}
+
+                {{ proyeccion.fecha_y_hora|date:"H:i" }}
+                </p>
+
                 {% for pelicula in proyeccion.pelicula_set.all %}
                   <div class="col s12 m6 l4">
                     <div class="card" style="height: 420px">
@@ -114,57 +164,6 @@
                               <p><b>País de origen:</b> {{ pelicula.origen }}</p>
                             {% else %}
                               <p><b>Universidad:</b> {{ pelicula.origen }}</p>
-                            {% endif %}
-                            {% if pelicula.proyeccion %}
-                              <p>
-                              {% if pelicula.proyeccion.fecha_y_hora|date:"w" == "0" %}
-                                Domingo
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"w" == "1" %}
-                                Lunes
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"w" == "2" %}
-                                Martes
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"w" == "3" %}
-                                Miércoles
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"w" == "4" %}
-                                Jueves
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"w" == "5" %}
-                                Viernes
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"w" == "6" %}
-                                Sábado
-                              {% endif %}
-
-                              {{ pelicula.proyeccion.fecha_y_hora|date:"d" }}
-
-                              de
-
-                              {% if pelicula.proyeccion.fecha_y_hora|date:"n" == "1" %}
-                                Enero
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"n" == "2" %}
-                                Febrero
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"n" == "3" %}
-                                Marzo
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"n" == "4" %}
-                                Abril
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"n" == "5" %}
-                                Mayo
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"n" == "6" %}
-                                Junio
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"n" == "7" %}
-                                Julio
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"n" == "8" %}
-                                Agosto
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"n" == "9" %}
-                                Septiembre
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"n" == "10" %}
-                                Octubre
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"n" == "11" %}
-                                Noviembre
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"n" == "12" %}
-                                Diciembre
-                              {% endif %}
-
-                              {{ pelicula.proyeccion.fecha_y_hora|date:"H:i" }}
-                              </p>
                             {% endif %}
                             <a class="modal-trigger waves-effect waves-light color_oficial" href="#modal{{ pelicula.pk }}" style="color:#BC426A;">Ver más</a>
                         </div>
@@ -228,57 +227,6 @@
                               <p><b>País de origen:</b> {{ pelicula.origen }}</p>
                             {% else %}
                               <p><b>Universidad:</b> {{ pelicula.origen }}</p>
-                            {% endif %}
-                            {% if pelicula.proyeccion %}
-                              <p>
-                              {% if pelicula.proyeccion.fecha_y_hora|date:"w" == "0" %}
-                                Domingo
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"w" == "1" %}
-                                Lunes
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"w" == "2" %}
-                                Martes
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"w" == "3" %}
-                                Miércoles
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"w" == "4" %}
-                                Jueves
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"w" == "5" %}
-                                Viernes
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"w" == "6" %}
-                                Sábado
-                              {% endif %}
-
-                              {{ pelicula.proyeccion.fecha_y_hora|date:"d" }}
-
-                              de
-
-                              {% if pelicula.proyeccion.fecha_y_hora|date:"n" == "1" %}
-                                Enero
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"n" == "2" %}
-                                Febrero
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"n" == "3" %}
-                                Marzo
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"n" == "4" %}
-                                Abril
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"n" == "5" %}
-                                Mayo
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"n" == "6" %}
-                                Junio
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"n" == "7" %}
-                                Julio
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"n" == "8" %}
-                                Agosto
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"n" == "9" %}
-                                Septiembre
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"n" == "10" %}
-                                Octubre
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"n" == "11" %}
-                                Noviembre
-                              {% elif pelicula.proyeccion.fecha_y_hora|date:"n" == "12" %}
-                                Diciembre
-                              {% endif %}
-
-                              {{ pelicula.proyeccion.fecha_y_hora|date:"H:i" }}
-                              </p>
                             {% endif %}
                             <a class="modal-trigger waves-effect waves-light color_oficial" href="#modal{{ pelicula.pk }}" style="color:#BC426A;">Ver más</a>
                         </div>
