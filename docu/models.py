@@ -134,6 +134,7 @@ class Conferencia(models.Model):
 class Pelicula(models.Model):
 	evento = models.ForeignKey('Evento', blank=True, null=True)
 	proyeccion = models.ForeignKey('Proyeccion', blank=True, null=True)
+	proyeccion_2 = models.ForeignKey('Proyeccion', blank=True, null=True, related_name='peliculas_2')
 
 	es_seleccion_oficial = models.BooleanField(default=False)
 	nacional = models.BooleanField(default=False)
