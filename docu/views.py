@@ -422,3 +422,6 @@ def sede(request, sede_id):
 	context['redes_sociales'] = redes_sociales
 	context['sede'] = sede
 	return render(request, 'sede.html', context)
+
+def inscripciones(request):
+	return redirect('http://goo.gl/forms/HzBJPABUzP')
