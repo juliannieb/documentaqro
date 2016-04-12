@@ -94,6 +94,7 @@
               {% for proyeccion in proyecciones_list %}
                 <div class="row">
                 <h4>{{ proyeccion.nombre }}</h4>
+                <p>{{ proyeccion.descripcion }}</p>
                 <p><b>Hora:</b> {{ proyeccion.fecha_y_hora|date:"H:i" }}</p>
                 {% if proyeccion.sede %}
                   <p><b>Lugar:</b> {{ proyeccion.sede.nombre }}</p>
@@ -327,7 +328,7 @@
                         </div>
                       </div>
                 {% endfor %}
-                
+
                 </div>
               {% endfor %}
               {% endif %}
