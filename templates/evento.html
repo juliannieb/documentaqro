@@ -14,19 +14,22 @@
         <div class="container">
             <div class="nav-wrapper">
                 <ul class="hide-on-med-and-down center">
-                    <li><a href="#inicio" style="color:{{ evento.color_texto_nav }};">{{ evento.nombre }}</a></li>
-                    <li><a href="#programa" style="color:{{ evento.color_texto_nav }};">Programa</a></li>
+                    <li><a href="#inicio" style="color:{{ evento.color_texto_nav }};" class="btn_secondary_bar">{{ evento.nombre }}</a></li>
+                    <li><a href="#programa" style="color:{{ evento.color_texto_nav }};" class="btn_secondary_bar">Programa</a></li>
                     {% if jurado %}
-                    <li><a href="#jurado" style="color:{{ evento.color_texto_nav }};">Jurado</a></li>
+                    <li><a href="#jurado" style="color:{{ evento.color_texto_nav }};" class="btn_secondary_bar">Jurado</a></li>
                     {% endif %}
                     {% if invitados_especiales %}
-                    <li><a href="#invitados_especiales" style="color:{{ evento.color_texto_nav }};">Invitadxs especiales</a></li>
+                    <li><a href="#invitados_especiales" style="color:{{ evento.color_texto_nav }};" class="btn_secondary_bar">Invitadxs especiales</a></li>
                     {% endif %}
                     {% if talleristas %}
-                    <li><a href="#talleristas" style="color:{{ evento.color_texto_nav }};">Talleristas</a></li>
+                    <li><a href="#talleristas" style="color:{{ evento.color_texto_nav }};" class="btn_secondary_bar">Talleristas</a></li>
                     {% endif %}
                     {% if evento.arte %}
-                    <li><a href="#arte" style="color:{{ evento.color_texto_nav }};">Arte</a></li>
+                    <li><a href="#arte" style="color:{{ evento.color_texto_nav }};" class="btn_secondary_bar">Arte</a></li>
+                    {% endif %}
+                    {% if evento.patrocinadores %}
+                    <li><a href="#patrocinadores" style="color:{{ evento.color_texto_nav }};" class="btn_secondary_bar">Patrocinadores</a></li>
                     {% endif %}
                 </ul>
             </div>
