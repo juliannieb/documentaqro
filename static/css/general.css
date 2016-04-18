@@ -19,3 +19,7 @@ nav#nav_principal ul li a{
 .header {
 	width: 100%;
 }
+
+.btn_secondary_bar {
+	font-size: 14px;
+}
